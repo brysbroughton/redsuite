@@ -110,3 +110,23 @@ RD_Foundation_Pages = set([
     'Foundation - Form page'
     ])
 
+def parse_date(datestr):
+    """
+    Accepts date string formatted like YYYY-MM-DD
+    Returns corresponding RedDot ordinal date as numerical string
+    """
+    reg = re.compile('^[0-9]{4}-[0-9]{2}-[0-9]{2}$')
+    if reg.match(datestr):
+        datear = datestr.split('-')
+        datear = map(lambda x: int(x, 10), datear)
+        try:
+            import datetime
+            datein = datetime.datetime(datear[0], datear[1], datear[2])
+            redordinal = datein.toordinal() - 693594 #The Red epoch is 693594 days before the python epoch
+            return str(redordinal)
+        except Exception as ex:
+            print "Error evaluating date. Please ensure a valid date was entered."
+            return ''
+    else:
+        print "Expected date string of format YYYY-MM-DD at: " + str(datestr)
+        return ''

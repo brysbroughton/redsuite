@@ -4,6 +4,8 @@ import RedDot as red
 import xml.etree.ElementTree as ET
 import xml, httplib, urllib
 
+loginguid=''
+sessionkey=''
 
 class RedRequestObj(object):
     """
@@ -41,7 +43,7 @@ class RedRequestObj(object):
             elems = elems[0:limit]
         return elems
 
-    def request(self, padded=False):
+    def request(self):
         #implement cacheing later - this is non-cached case
         conn = httplib.HTTPSConnection(red.host)
         params = urllib.urlencode({'RQL': self.RQL})
@@ -60,8 +62,11 @@ class RedRequestObj(object):
     def getguid(self):
         return self.guid
 
-    def setrql(self, rql):
-        self.RQL = rql
+    def setrql(self, rql, padded=False):
+        if not padded:
+            self.RQL = '<IODATA loginguid="'+loginguid+'" sessionkey="'+sessionkey+'">'+rql+'</IODATA>'
+        else:
+            self.RQL = rql
 
     def getrql(self):
         return self.RQL
@@ -88,27 +93,39 @@ class RedRequestObj(object):
 
 class RedRequestLink(RedRequestObj):
 
-    RQL = '<LINK guid="!!!" action="load"><PAGES action="list" /><URL action="load" /></LINK>'
+    def __init__(self, guid_in=''):
+        RedRequestObj.__init__(self, guid_in)
+        self.setrql('<LINK guid="'+self.getguid()+'" action="load"><PAGES action="list" /><URL action="load" /></LINK>')
 
-
-
+    
 class RedRequestPage(RedRequestObj):
 
-    RQL = '<PAGE guid="!!!" action="load" />'
+    def __init__(self, guid_in=''):
+        RedRequestObj.__init__(self, guid_in)
+        self.setrql('<PAGE guid="'+self.getguid()+'" action="load" option="extendedinfo"><ELEMENTS action="load" /><LINKS action="load" /></PAGE>')
     
     
 class RedRequestElement(RedRequestObj):
     
-    RQL = '!!!'
+    def __init__(self, guid_in=''):
+        RedRequestObj.__init__(self, guid_in)
+        self.setrql('<ELT guid="'+self.getguid()+'" action="load" />')
+        #if has attr 'referenceelementguid' - must follow guid
+        #issue folder request on 'eltsrcsubdirguid' to get path
     
     
 class RedRequestText(RedRequestObj):
-    
-    RQL = '!!!'
+
+    def __init__(self, guid_in=''):
+        RedRequestObj.__init__(self, guid_in)
+        self.setrql('<IODATA loginguid="'+loginguid+'" sessionkey="'+sessionkey+'" format="1"><PROJECT><TEXT action="load" guid="'+self.getguid()+'" texttype="1" /></PROJECT></IODATA>', True)
 
 
 class RedRequestReference(RedRequestObj):
 
-    RQL = '!!!'
+    def __init__(self, guid_in=''):
+        RedRequestObj.__init__(self, guid_in)
+        self.setrql('<TREESEGMENT action="gototreereference" guid="'+self.getguid()+'" type="link" />')
+
 
     

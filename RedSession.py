@@ -1,9 +1,10 @@
 print 'RedSession imported'
 
 import RedDot as red
-from RedRequestObj import RedRequestObj as RRob
+import RedRequestObj
 import pprint
 
+RRob = RedRequestObj.RedRequestObj
 
 class RedSession(object):
 
@@ -12,21 +13,27 @@ class RedSession(object):
     user = ''
     password = ''
 
+    def setsessionkey(self, key):
+        self.sessionkey = RedRequestObj.sessionkey = key
+
+    def setloginguid(self, guid):
+        self.loginguid = RedRequestObj.loginguid = guid
+
     def __init__(self, sessionkey='', loginguid=''):
-        self.sessionkey = sessionkey
-        self.loginguid = loginguid
+        self.sessionkey = RedRequestObj.sessionkey = sessionkey
+        self.loginguid = RedRequestObj.loginguid = loginguid
 
     def login(self):
         self.user = raw_input('Username: ')
         self.password = raw_input('Password: ')
         o = RRob()
-        o.setrql('<IODATA><ADMINISTRATION action="login" name="' + self.user + '" password="' + self.password + '" /></IODATA>')
+        o.setrql('<IODATA><ADMINISTRATION action="login" name="' + self.user + '" password="' + self.password + '" /></IODATA>', True)
         print o.request()
 
         loginguid = o.fetch('./LOGIN', 'guid', 1)[0]
         if loginguid is not None:
             if len(loginguid) > 0:
-                self.loginguid = loginguid
+                self.setloginguid(loginguid)
                 print self.loginguid
                 #create dictionary of project guids
                 pnodes = o.getXpath(o.redResponse, './USER/LASTMODULES//MODULE')
@@ -50,9 +57,9 @@ class RedSession(object):
             return
         elif pdict.has_key(user_in):
             o = RRob()
-            o.setrql('<IODATA loginguid="'+self.loginguid+'">' + '<ADMINISTRATION action="validate" guid="'+self.loginguid+'" useragent="script"><PROJECT guid="'+pdict[user_in]+'" /></ADMINISTRATION></IODATA>')
+            o.setrql('<IODATA loginguid="'+self.loginguid+'">' + '<ADMINISTRATION action="validate" guid="'+self.loginguid+'" useragent="script"><PROJECT guid="'+pdict[user_in]+'" /></ADMINISTRATION></IODATA>', True)
             res = o.request()
-            self.sessionkey = o.fetch('.//SERVER', 'key', 1)[0]
+            self.setsessionkey(o.fetch('.//SERVER', 'key', 1)[0])
         else:
             print "\n***invalid project name***\n"
             self.loginProjectSelect(pdict)
@@ -60,7 +67,7 @@ class RedSession(object):
         
     def logout(self, user_in=None):
         o = RRob()
-        o.setrql('<IODATA loginguid="' + self.loginguid + '" ><ADMINISTRATION><LOGOUT guid="' + self.loginguid +  '" /></ADMINISTRATION></IODATA>')
+        o.setrql('<IODATA loginguid="' + self.loginguid + '" ><ADMINISTRATION><LOGOUT guid="' + self.loginguid +  '" /></ADMINISTRATION></IODATA>', True)
         return o.request()
 
 
