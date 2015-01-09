@@ -22,13 +22,27 @@ class RedSession(object):
     def __init__(self, sessionkey='', loginguid=''):
         self.sessionkey = RedRequestObj.sessionkey = sessionkey
         self.loginguid = RedRequestObj.loginguid = loginguid
+        
+    def cache(self):
+        if len(self.sessionkey) > 0 and len(self.loginguid) > 0:
+            red.cache('sessionkey', self.sessionkey)
+            red.cache('loginguid', self.loginguid)
+        else:
+            print 'No session found'
+    
+    def load(self):
+        if red.cached('sessionkey') and red.cached('loginguid'):
+            self.setsessionkey(red.getcached('sessionkey'))
+            self.setloginguid(red.getcached('loginguid'))
+        else:
+            print 'No cached session found'
 
     def login(self):
         self.user = raw_input('Username: ')
         self.password = raw_input('Password: ')
         o = RRob()
         o.setrql('<IODATA><ADMINISTRATION action="login" name="' + self.user + '" password="' + self.password + '" /></IODATA>', True)
-        print o.request()
+        o.request(True)
 
         loginguid = o.fetch('./LOGIN', 'guid', 1)[0]
         if loginguid is not None:
@@ -58,7 +72,7 @@ class RedSession(object):
         elif pdict.has_key(user_in):
             o = RRob()
             o.setrql('<IODATA loginguid="'+self.loginguid+'">' + '<ADMINISTRATION action="validate" guid="'+self.loginguid+'" useragent="script"><PROJECT guid="'+pdict[user_in]+'" /></ADMINISTRATION></IODATA>', True)
-            res = o.request()
+            res = o.request(True)
             self.setsessionkey(o.fetch('.//SERVER', 'key', 1)[0])
         else:
             print "\n***invalid project name***\n"
@@ -68,7 +82,7 @@ class RedSession(object):
     def logout(self, user_in=None):
         o = RRob()
         o.setrql('<IODATA loginguid="' + self.loginguid + '" ><ADMINISTRATION><LOGOUT guid="' + self.loginguid +  '" /></ADMINISTRATION></IODATA>', True)
-        return o.request()
+        o.request(True)
 
 
 sesh = RedSession()

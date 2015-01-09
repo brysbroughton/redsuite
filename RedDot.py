@@ -1,5 +1,6 @@
 
 #import RedAdmin, RedPressExporter
+import os
 
 """
 Namespace for handling install-specific details of RedDot API administration
@@ -8,7 +9,7 @@ auth Brys B 2015-01-06
 
 host = 'red.otc.edu:443'
 aspconnecturl = '/CMS/PlugIns/BrysPlug/BrysPlug.asp'
-cachepath = '.'
+cachepath = './cache/'
 RD_Error_Messages = {
     'PLEASE LOGIN': 'The user session has timed out or the Login GUID is no longer valid. Please login again.  Login.',
     '#RDERROR1': 'The number of modules in the license key does not correspond to the checksum.',
@@ -130,3 +131,39 @@ def parse_date(datestr):
     else:
         print "Expected date string of format YYYY-MM-DD at: " + str(datestr)
         return ''
+    
+    
+def cache(guid, res):
+    """
+    Takes a guid and its RedDot Response and caches in the local cache directory
+    No return value
+    """
+    if not os.path.exists(cachepath):
+        os.mkdir(cachepath)
+    
+    f = open(cachepath+guid+'.xml', 'w')
+    f.write(res)
+    f.close()
+
+
+def cached(guid):
+    """
+    Takes guid and checks if its information is stored in the local cache
+    Returns boolean
+    """
+    return os.path.exists(cachepath+'/'+guid+'.xml')
+    
+
+def getcached(guid):
+    """
+    Takes guid and returns locally cached RedDot response for that guid
+    """
+    if cached(guid):
+        f = open(cachepath+guid+'.xml', 'r')
+        res = f.read()
+        f.close()
+        return res
+    else:
+        raise Exception("File not in local cache")
+    
+    

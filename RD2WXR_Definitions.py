@@ -58,6 +58,44 @@ footer = """</channel>
 </rss>"""
 
 wpds = {
+    'Generic Foundation':
+    {
+        'html':
+            """
+            <item>
+            <title><%hdl_headline/%></title>
+            <link>"""+wordpresshost+"""<%wp_filename/%></link>
+            <pubDate></pubDate><dc:creator></dc:creator>
+            <guid isPermaLink="false">"""+wordpresshost+"""<%wp_filename/%>/</guid>
+            <description></description>
+            <content:encoded><![CDATA[
+            <%con_body/%>
+            ]]></content:encoded>
+            <excerpt:encoded><![CDATA['+page_headline+']]></excerpt:encoded>
+		<wp:post_id></wp:post_id>
+		<wp:post_date></wp:post_date>
+		<wp:post_date_gmt></wp:post_date_gmt>
+		<wp:comment_status>closed</wp:comment_status>
+		<wp:ping_status>closed</wp:ping_status>
+		<wp:post_name><%wp_filename/%></wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent></wp:post_parent>
+		<wp:menu_order>1</wp:menu_order>
+		<wp:post_type>page</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:postmeta>
+			<wp:meta_key>_wp_page_template</wp:meta_key>
+			<wp:meta_value><![CDATA[default]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_edit_last</wp:meta_key>
+			<wp:meta_value><![CDATA[2]]></wp:meta_value>
+		</wp:postmeta>
+            </item>
+            """
+    },
+    
     'Text - H3 (Main) Heading and Paragraph':
     {
         'html':"""<h3><%hdl_headline/%></h3>\n<div><%txt_text/%></div>"""

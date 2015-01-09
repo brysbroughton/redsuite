@@ -43,18 +43,37 @@ class RedRequestObj(object):
             elems = elems[0:limit]
         return elems
 
-    def request(self):
-        #implement cacheing later - this is non-cached case
-        conn = httplib.HTTPSConnection(red.host)
-        params = urllib.urlencode({'RQL': self.RQL})
-        headers = {"Content-type": "application/x-www-form-urlencoded", "Accept": "application/x-ms-application,", "Connection": "Keep-Alive", "POST": params}
-        try:
-            conn.request('POST', red.aspconnecturl, params, headers)
-            self.redResponse = conn.getresponse().read()
-            self.err()
+    def request(self, nocache=False):
+        if nocache:
+            print 'no cache'
+            conn = httplib.HTTPSConnection(red.host)
+            params = urllib.urlencode({'RQL': self.RQL})
+            headers = {"Content-type": "application/x-www-form-urlencoded", "Accept": "application/x-ms-application,", "Connection": "Keep-Alive", "POST": params}
+            try:
+                conn.request('POST', red.aspconnecturl, params, headers)
+                self.redResponse = conn.getresponse().read()
+                self.err()
+                return self.redResponse
+            except Exception as ex:
+                raise ex
+        
+        if red.cached(self.getguid()):
+            print 'response from cached copy'
+            self.redResponse = red.getcached(self.getguid())
             return self.redResponse
-        except Exception as ex:
-            raise ex
+        else:
+            print 'new request'
+            conn = httplib.HTTPSConnection(red.host)
+            params = urllib.urlencode({'RQL': self.RQL})
+            headers = {"Content-type": "application/x-www-form-urlencoded", "Accept": "application/x-ms-application,", "Connection": "Keep-Alive", "POST": params}
+            try:
+                conn.request('POST', red.aspconnecturl, params, headers)
+                self.redResponse = conn.getresponse().read()
+                self.err()
+                red.cache(self.getguid(), self.redResponse)
+                return self.redResponse
+            except Exception as ex:
+                raise ex
 
     def setguid(self, guid_in):
         self.guid = guid_in
@@ -80,9 +99,9 @@ class RedRequestObj(object):
                 if node.tag == 'ERROR':
                     errcode = node.text.upper()
                     if red.RD_Error_Messages.has_key(errcode):
-                        print red.RD_Error_Messages[errcode]
+                        raise Exception( red.RD_Error_Messages[errcode] )
                     else:
-                        print errcode
+                        raise Exception( errcode )
                 else:
                     pass
                     #print 'Unknown Error>>>\n' + self.redResponse
