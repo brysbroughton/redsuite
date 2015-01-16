@@ -84,7 +84,7 @@ RD_Foundation_Pages = set([
     'Foundation - Self Study - Full Image Page',
     'Foundation - Self Study - Resource Room Page',
     'Foundation - Single Article',
-#     'Foundation - Single FAQ Page', #treat as body content for export
+    'Foundation - Single FAQ Page', #treat as body content for export
     'Foundation - Single Press Release',
     'Foundation - Static Full-Width Page',
     'Foundation - Strategic Planning - Full Image Page',
@@ -138,6 +138,8 @@ def cache(guid, res):
     Takes a guid and its RedDot Response and caches in the local cache directory
     No return value
     """
+    #todo - temporarily disabling cache
+    return
     if not os.path.exists(cachepath):
         os.mkdir(cachepath)
     
@@ -151,6 +153,8 @@ def cached(guid):
     Takes guid and checks if its information is stored in the local cache
     Returns boolean
     """
+    #todo - temporarily disabling cache
+    return False
     return os.path.exists(cachepath+'/'+guid+'.xml')
     
 
@@ -158,7 +162,12 @@ def getcached(guid):
     """
     Takes guid and returns locally cached RedDot response for that guid
     """
+    #todo
+    #make cache enable/disable functions
+    raise Exception("File not in local cache")#temporarily 'disabling cache'
+
     if cached(guid):
+        print 'loading cached response '+cachepath+guid+'.xml'
         f = open(cachepath+guid+'.xml', 'r')
         res = f.read()
         f.close()

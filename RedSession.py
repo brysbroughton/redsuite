@@ -22,6 +22,7 @@ class RedSession(object):
     def __init__(self, sessionkey='', loginguid=''):
         self.sessionkey = RedRequestObj.sessionkey = sessionkey
         self.loginguid = RedRequestObj.loginguid = loginguid
+        self.load()
         
     def cache(self):
         if len(self.sessionkey) > 0 and len(self.loginguid) > 0:
@@ -74,6 +75,7 @@ class RedSession(object):
             o.setrql('<IODATA loginguid="'+self.loginguid+'">' + '<ADMINISTRATION action="validate" guid="'+self.loginguid+'" useragent="script"><PROJECT guid="'+pdict[user_in]+'" /></ADMINISTRATION></IODATA>', True)
             res = o.request(True)
             self.setsessionkey(o.fetch('.//SERVER', 'key', 1)[0])
+            self.cache()
         else:
             print "\n***invalid project name***\n"
             self.loginProjectSelect(pdict)

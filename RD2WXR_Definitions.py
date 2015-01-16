@@ -2,24 +2,25 @@
 #To be imported for use in the RedLine Exporting function
 #Auth Brys B 2014-12
 #
-#denote RedDot Elements by placeholders e.g. <%hdl_headline/%>
+#denote RedDot Elements by placeholders e.g. <%headline/%>
 ##placeholders cannot have whitespace
 #
-##simple place holders have trailing slashe.g. <%hdl_headline/%>
+##simple place holders have trailing slashe.g. <%headline/%>
 #
 ##placeholders for containers and lists have opening and closing tags
 ##e.g. <%IoRangeConditional%><%stf_description/%><%/IoRangeConditional%>
 #
 ##Lists and containers must be nested e.g.
-##<%IoRangeListLink%><%lst_listitems%><li><%hdl_headline/%></li><%/lst_listitems%><%/IoRangeListLink%>
+##<%IoRangeListLink%><%lst_listitems%><li><%headline/%></li><%/lst_listitems%><%/IoRangeListLink%>
 #
-##Supported Containers: IoRangeConditional, IoRangeListLink, IoRangeListContent
+##Supported Containers: IoRangeConditional, IoRangeListLink, IoRangeListContent, IoRangeContainer
 #
 ##IoRangeConditional can nest only one placeholder as argument
 #
-import datetime
+import datetime, re
+import pprint
 
-wordpresshost = 'http://philip.ozarkstech.org'
+wordpresshost = 'http://philip.ozarkstech.org/'
 
 def wp_fileurl(headline):
     """
@@ -63,15 +64,15 @@ wpds = {
         'html':
             """
             <item>
-            <title><%hdl_headline/%></title>
+            <title><%headline/%></title>
             <link>"""+wordpresshost+"""<%wp_filename/%></link>
             <pubDate></pubDate><dc:creator></dc:creator>
             <guid isPermaLink="false">"""+wordpresshost+"""<%wp_filename/%>/</guid>
             <description></description>
             <content:encoded><![CDATA[
-            <%con_body/%>
+            <%IoRangeContainer%>con_body<%/IoRangeContainer%>
             ]]></content:encoded>
-            <excerpt:encoded><![CDATA['+page_headline+']]></excerpt:encoded>
+            <excerpt:encoded><![CDATA['<%headline/%>']]></excerpt:encoded>
 		<wp:post_id></wp:post_id>
 		<wp:post_date></wp:post_date>
 		<wp:post_date_gmt></wp:post_date_gmt>
@@ -98,14 +99,14 @@ wpds = {
     
     'Text - H3 (Main) Heading and Paragraph':
     {
-        'html':"""<h3><%hdl_headline/%></h3>\n<div><%txt_text/%></div>"""
+        'html':"""<h3><%headline/%></h3>\n<div><%txt_text/%></div>"""
         
     },
     
     'Links - Large Bulleted Link List (Two Columns)':
     {
         'html':"""
-            <h4><%hdl_headline/%></h4>
+            <h4><%headline/%></h4>
             <%IoRangeConditional%><p><%txt_list_desc/%></p><%/IoRangeConditional%>
             <div class="two-column_links wrapper">
                 <ul class="big_links two-column_links_1 wrapper">
@@ -119,13 +120,13 @@ wpds = {
     
     'Links - Large Bulleted Link List - wxr item':
     {
-        'html':"""<li><a href="<%URL/%>"><span class="big_links_span"><%hdl_headline/%></span></a></li>\n"""
+        'html':"""<li><a href="<%URL/%>"><span class="big_links_span"><%headline/%></span></a></li>\n"""
     },
     
     'Links - Small Bulleted Link List (Two Columns)':
     {
         'html':"""
-            <h4><%hdl_headline/%></h4>
+            <h4><%headline/%></h4>
             <%IoRangeConditional%><p><%txt_list_desc/%></p><%/IoRangeConditional%>
             <div class="two-column_links wrapper">
                 <ul class="feature_links two-column_links_1 wrapper">
@@ -139,25 +140,25 @@ wpds = {
     
     'Links - Small Bulleted Link List - wxr item':#Repeating link snippet from link list
     {
-        'html':"""<li><a href="<%URL/%>"><span class="feature_links_span"><%hdl_headline/%></span></a></li>\n"""
+        'html':"""<li><a href="<%URL/%>"><span class="feature_links_span"><%headline/%></span></a></li>\n"""
     },
     
     'Bio Box (Large)':
     {
         'html':"""
             <div class="content_bio_box_large wrapper">
-                <img src="<%img_bioImage/%>" border="0" alt="<%hdl_headline/%>" class="content_bio_image" />
+                <img src="<%img_bioImage/%>" border="0" alt="<%headline/%>" class="content_bio_image" />
                 <div class="content_bio_info wrapper">
-                    <a href="mailto:<%stf_email/%>" class="mail_icon" title="Email <%hdl_headline/%>"><span>Email <%hdl_headline/%></span></a>
-                    <h3><%hdl_headline/%></h3>
+                    <a href="mailto:<%stf_email/%>" class="mail_icon" title="Email <%headline/%>"><span>Email <%headline/%></span></a>
+                    <h3><%headline/%></h3>
                     <%IoRangeConditional%><h4><%stf_positionTitle/%></h4><%/IoRangeConditional%>
                     <%IoRangeConditional%><h5><%stf_degree1/%></h5><%/IoRangeConditional%>
                     <%IoRangeConditional%><h5><%stf_degree2/%></h5><%/IoRangeConditional%>
                     <%IoRangeConditional%><h5><%stf_degree3/%></h5><%/IoRangeConditional%>
                     <%IoRangeConditional%><h5><%stf_degree4/%></h5><%/IoRangeConditional%>
-                    <%IoRangeConditional%><h5><%stf_degree5/%></h5><%/IoRangeConditional%>
-                    <%IoRangeConditionalAnchor%><%anc_website%>Bio Box (Large) - wxr item - website link<%/anc_website%><%/IoRangeConditionalAnchor%>
-                    <%IoRangeConditional%><h5 class="highlight-blue">Office: <%stf_officeNumber/%></h5><%/IoRangeConditional%>
+                    <%IoRangeConditional%><h5><%stf_degree5/%></h5><%/IoRangeConditional%>"""
+                    #<%IoRangeConditionalAnchor%><%anc_website%>Bio Box (Large) - wxr item - website link<%/anc_website%><%/IoRangeConditionalAnchor%>
+                    """<%IoRangeConditional%><h5 class="highlight-blue">Office: <%stf_officeNumber/%></h5><%/IoRangeConditional%>
                     <%IoRangeConditional%><h5 class="highlight-blue">Phone: <%stf_phoneNumber/%></h5><%/IoRangeConditional%>
                 </div>
                 <%IoRangeConditional%><p><%txt_text/%></p><%/IoRangeConditional%>
@@ -166,7 +167,7 @@ wpds = {
     
     'Bio Box (Large) - wxr item - bio image':
     {
-        'html':"""<img src="<%img_bioImage/%>" border="0" alt="<%hdl_headline/%>" class="content_bio_image" />"""
+        'html':"""<img src="<%img_bioImage/%>" border="0" alt="<%headline/%>" class="content_bio_image" />"""
     },
     
     'Bio Box (Large) - wxr item - website link':
@@ -177,18 +178,18 @@ wpds = {
     'Bio Box (Small)':
     {
         'html':"""                <div class="content_bio_box wrapper">
-                <img src="<%img_bioImage/%>" border="0" alt="<%hdl_headline/%>" class="content_bio_image" />
+                <img src="<%img_bioImage/%>" border="0" alt="<%headline/%>" class="content_bio_image" />
                 <div class="content_bio_info boxes wrapper">
-                    <a href="mailto:<%stf_email/%>" class="mail_icon" title="Email <%hdl_headline/%>"><span>Email <%hdl_headline/%></span></a>
-                    <h3><%hdl_headline/%></h3>
+                    <a href="mailto:<%stf_email/%>" class="mail_icon" title="Email <%headline/%>"><span>Email <%headline/%></span></a>
+                    <h3><%headline/%></h3>
                     <h4><%stf_positionTitle/%></h4>
                     <%IoRangeConditional%><h5><%stf_degree1/%></h5><%/IoRangeConditional%>
                     <%IoRangeConditional%><h5><%stf_degree2/%></h5><%/IoRangeConditional%>
                     <%IoRangeConditional%><h5><%stf_degree3/%></h5><%/IoRangeConditional%>
                     <%IoRangeConditional%><h5><%stf_degree4/%></h5><%/IoRangeConditional%>
-                    <%IoRangeConditional%><h5><%stf_degree5/%></h5><%/IoRangeConditional%>
-                    <%IoRangeConditionalAnchor%><%anc_website%>Bio Box (Small) - wxr item - website link<%/anc_website%><%/IoRangeConditionalAnchor%>
-                    <h4 class="highlight-blue">
+                    <%IoRangeConditional%><h5><%stf_degree5/%></h5><%/IoRangeConditional%>"""
+                    #<%IoRangeConditionalAnchor%><%anc_website%>Bio Box (Small) - wxr item - website link<%/anc_website%><%/IoRangeConditionalAnchor%>
+                    """<h4 class="highlight-blue">
                         <%IoRangeConditional%>Office: <%stf_officeNumber%><%/IoRangeConditional%>
                         <%IoRangeConditional%>Phone: <%stf_phoneNumber%><%/IoRangeConditional%>
                     </h4>
@@ -205,7 +206,7 @@ wpds = {
     'Catalog - Program Overview':
     {
         'html':"""
-        <h3><%hdl_headline/%></h3>
+        <h3><%headline/%></h3>
         <%IoRangeConditional%><h4><%stf_certificateInfo/%></h4><%/IoRangeConditional%>
         <%IoRangeConditional%><h4><%stf_aasInfo/%></h4><%/IoRangeConditional%>
         <%IoRangeConditional%><p><%txt_text%></p><%/IoRangeConditional%>"""
@@ -213,13 +214,13 @@ wpds = {
     
     'Text - H3 (Main) Heading and Paragraph (with images)':
     {
-        'html':"""            <h3><%hdl_headline/%></h3>
+        'html':"""            <h3><%headline/%></h3>
         <p><%txt_text/%><p>"""
     },
     
     'Text - H4 (Sub) Heading  and Paragraph (with images)':
     {
-        'html':"""            <h4><%hdl_headline/%></h4>
+        'html':"""            <h4><%headline/%></h4>
         <p><%txt_text/%></p>"""
     },
     
@@ -227,7 +228,7 @@ wpds = {
     {
         'html':"""
             <div class="dropper wrapper">
-                <h4 class="dropControl"><%hdl_headline/%></h4>
+                <h4 class="dropControl"><%headline/%></h4>
                 <div class="dropText"><%txt_text/%></div>
             </div>"""
     },
@@ -235,33 +236,33 @@ wpds = {
     'Gallery Page':
     {
         'html':"""
-        <h4><%hdl_headline/%></h4>
+        <h4><%headline/%></h4>
         <%IoRangeConditional%><p><%txt_text/%></p><%/IoRangeConditional%>
         <div id="gallery" class="wrapper">
-        <%IoRangeListContent%><%list_galleryImages/%><%/IoRangeListContent%>
+        <%IoRangeListContent%>list_galleryImages<%/IoRangeListContent%>
         </div>"""
     },
     
     'Gallery Image':
     {
         'html':"""                <div class="gal_img">
-                <a href="<%img_galleryImage/%>" title="<%stf_imageCaption/%>"><img src="<%img_galleryImage/%>" alt="<%hdl_headline/%>" border="0" /></a>
+                <a href="<%img_galleryImage/%>" title="<%stf_imageCaption/%>"><img src="<%img_galleryImage/%>" alt="<%headline/%>" border="0" /></a>
             </div>"""
     },
     
     'FAQs - List of FAQs':
     {
         'html':"""
-            <h3><%hdl_headline/%></h3>
-            <%IoRangeConditional%><p><%txt_faqDescription%></p><%/IoRangeConditional%>
-            <%IoRangeListContent%><%list_faqs/%><%/IoRangeListContent%>"""
+            <h3><%headline/%></h3>
+            <%IoRangeConditional%><p><%txt_faqDescription/%></p><%/IoRangeConditional%>
+            <%IoRangeListContent%>list_faqs<%/IoRangeListContent%>"""
     },
     
     'Foundation - Single FAQ Page':
     {
         'html':"""
             <div class="faq_item wrapper">
-                <div class="faq_question wrapper"><h4><%hdl_headline/%></h4></div>
+                <div class="faq_question wrapper"><h4><%headline/%></h4></div>
                 <div class="faq_answer wrapper"><%txt_text/%></div>
             </div>"""
     },
@@ -269,14 +270,14 @@ wpds = {
     'Links - File Download List (Two Columns)':
     {
         'html':"""
-        <h4><%hdl_headline/%></h4>
+        <h4><%headline/%></h4>
         <%IoRangeConditional%><p><%txt_list_desc/%></p><%/IoRangeConditional%>
         <div class="two-column_links wrapper">
             <ul class="resources_links two-column_links_1 wrapper">
-            <%IoRangeListContent%><%list_downloadItemPages1/%><%/IoRangeListContent%>
+            <%IoRangeListContent<%list_downloadItemPages1<%/IoRangeListContent%>
             </ul>
             <ul class="resources_links two-column_links_2 wrapper">
-            <%IoRangeListContent%><%list_downloadItemPages2/%><%/IoRangeListContent%>
+            <%IoRangeListContent<%list_downloadItemPages2<%/IoRangeListContent%>
             </ul>
         </div>"""
     },
@@ -284,13 +285,13 @@ wpds = {
     'Links - File Download List and Image (One Column with Image)':
     {
         'html':"""
-            <h4><%hdl_headline/%></h4>
+            <h4><%headline/%></h4>
+            <img src="<%img_linkListImage/%>" border="0" alt="" />
             <%IoRangeConditional%><p><%txt_list_desc/%></p><%/IoRangeConditional%>
             <div id="links_and_image" class="wrapper">
                 <ul class="resources_links two-column_links_1 wrapper">
-                <%IoRangeListContent%><%list_downloadItemPages/%><%/IoRangeListContent%>
+                <%IoRangeListContent%>list_downloadItemPages<%/IoRangeListContent%>
                 </ul>
-                <img src="<%img_linkListImage/%>" border="0" alt="" />
             </div>"""
     },
     
@@ -298,8 +299,8 @@ wpds = {
     {#alternate title if you can get the meta elements: <%att_downloadFilename/%> (<%att_downloadFilesize/%> KB)">
         'html':"""
                     <li class="wrapper">
-                        <a href="<%med_downloadFile/%>" title="<%hdl_headline/%>">
-                            <span class="resources_links_span"><%hdl_headline/%></span>
+                        <a href="<%med_downloadFile/%>" title="<%headline/%>">
+                            <span class="resources_links_span"><%headline/%></span>
                             <span class="rl_desc"><%stf_description/%></span> 
                         </a>
                     </li>"""
@@ -307,8 +308,10 @@ wpds = {
     
     'Mapbox':
     {
-        'html':"""            <h4><%hdl_headline/%></h4>
-        <%IoRangeConditional%><p><%txt_text%><p><%/IoRangeConditional%>
+        'html':
+            """
+        <h4><%headline/%></h4>
+        <%IoRangeConditional%><p><%txt_text/%><p><%/IoRangeConditional%>
         <div class="mapbox">
             <iframe width="625" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="<%IoRangeListLink%><%anc_googleMapIframeSourceLink%>anc_googleMapIframeSourceLink<%/anc_googleMapIframeSourceLink%><%/IoRangeListLink%>"></iframe>
         </div>"""
@@ -324,3 +327,41 @@ wpds = {
         'html': 'Just some regular text to test in the parsing function.'
     }
 }
+
+def parse(wpdef):
+    """
+    Returns mixed list representing abstract syntax tree.
+    List may contain strings or tuples.
+    Strings are basic ouput.
+    Tuples are function calls.
+    (fname, nestedwxr)
+    """
+    #pprint.pprint(wpdef)
+    tokens = re.split('<%\s*|\s*%>', wpdef, 2)
+    #pprint.pprint(tokens)
+    
+    if len(tokens) == 1:
+        return tokens #finished parsing
+    
+    if len(tokens) is not 3:
+        raise Exception('Parse Error: mis-matched "<%" or %>')
+    
+    #tokens = filter(lambda x: x, tokens)#removes empty strings
+    ast = []
+    
+    #simple self-closing placeholder
+    if tokens[1].endswith('/'):
+        ast = [tokens[0], ('placeholder', tokens[1][:-1])] + parse(tokens[2])
+        #ast= [text, ('getplaceholder', tag)] + parse(text)
+    elif tokens[1].startswith('/'):
+        raise Exception('Parse Error: mis-matched end tag at ' + tokens[1])
+    else:#opening placeholder
+        subtokens = re.split('<%/'+tokens[1]+'%>', tokens[2], 1)
+        if len(subtokens) < 2:
+            raise Exception("Parse Error: Missing closing placeholder: " + tokens[1])
+        ast = [tokens[0], (tokens[1] ,subtokens[0])] + parse(subtokens[1])
+        #ast= [text, (tag, innertext)] + parse(text)
+        
+    return ast#filter(lambda)
+        
+    
