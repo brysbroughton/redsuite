@@ -128,7 +128,7 @@ class RedRequestPage(RedRequestObj):
 
     def __init__(self, guid_in=''):
         RedRequestObj.__init__(self, guid_in)
-        self.setrql('<PAGE guid="'+self.getguid()+'" action="load" option="extendedinfo"><ELEMENTS action="load" /><LINKS action="load" /></PAGE>')
+        self.setrql('<PAGE guid="'+self.getguid()+'" action="load" option="extendedinfo" /><PAGE guid="'+self.getguid()+'"><ELEMENTS action="load" /><LINKS action="load" /></PAGE>')
     
     
 class RedRequestElement(RedRequestObj):
