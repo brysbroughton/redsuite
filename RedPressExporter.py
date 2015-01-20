@@ -90,7 +90,7 @@ class RedPress(object):
         o = RRob.RedRequestPage(guid)
         o.request()
         #verify is foundation page
-        if o.fetch('.//PAGE', 'templatetitle', 1)[0] not in red.RD_Foundation_Pages:
+        if o.fetch('.//PAGE[@templatetitle]', 'templatetitle', 1)[0] not in red.RD_Foundation_Pages:
             print('Warning: '+guid+' is not a foundation page. Nothing exported.')
             return
 

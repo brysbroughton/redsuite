@@ -1,0 +1,101 @@
+<IODATA><IODATA><PAGE action="load" option="extendedinfo" sessionkey="90DDD3B98530466D83BF485CC086548F" dialoglanguageid="ENG" languagevariantid="ENU" guid="37E0053E19BF4419A78C2B70D16067C8" id="241" templateguid="E881A1A7B79C4B909442713F9AB06C21" templaterights="2147483646" mainlinkguid="8CF1092FF9C348E5A4F5B5A4CD52B030" editlinkguid="8CF1092FF9C348E5A4F5B5A4CD52B030" parentguid="8CF1092FF9C348E5A4F5B5A4CD52B030" headline="Small Bulleted Link List" name="" sitemapname="" templatepath="BodyContent" templatetitle="Links - Small Bulleted Link List (Two Columns)" templateflags="536870912" headlinedescription="" status="1" flags="268960768" breadcrumbstartpoint="0" breadcrumbdonotuse="0" releaseguid="" createdate="41964.560462963" createuserguid="7BCD79C0DEC74ACA976661E776F548B2" createusername="freemanl" changedate="41964.5605787037" changeuserguid="7BCD79C0DEC74ACA976661E776F548B2" changeusername="freemanl" releasedate="41964.5670023148" releaseusername="freemanl" releaseuserguid="7BCD79C0DEC74ACA976661E776F548B2" lockdate="42024.4413773148" lastchangesincelocked="42024.4413773148" lockuserguid="AE1C1CF32B854C9FA30488508F0C3E15" lockusername="broughtb" lockuseremail="broughtb@otc.edu" checkindate="41964.5670023148" drafttemplates="0" templateswaitforrelease="0" templatelockuserguid="" templatelockdate="" templatelockusername="" templatelock="0" previousreleasedversionexists="1" useconnection="1" projectguid="F027326883D14209BF89C10ADD453837" userguid="E94BD09105A64CDDB94A0BA097958424" btflags="0"><ELEMENTS type="obligatory"></ELEMENTS><AUTHORIZATION  standardpagerightsassigned="0" standardpagerightname="" detailpagerightsassigned="0" detailpagerightname=""/><LANGUAGEVARIANTS>
+<LANGUAGEVARIANT guid="C498B6AA0C9944CA991929BAD168BB28" name="English" language="ENU" codetable="" charsetlabel="Server (Server)">
+<WORKFLOW guid="" name="" statustext="Released" lastreleasedby="freemanl" lastreleasedat="41964.5670023148"/><RELEASEUSERS><USER guid="7BCD79C0DEC74ACA976661E776F548B2" name="freemanl" date="41964.5670023148"/></RELEASEUSERS><EXPORTSETTINGS>
+<PROJECTVARIANTS>
+<PROJECTVARIANT guid="076101C773C646ED9F74A44455BB618A" name="HTML" exportname="OTC www">
+<EXPORTFOLDERS>
+<EXPORTFOLDER folderguid="00000000000000000000000000000100" foldername="Published pages" folderpath=""/>
+<EXPORTFOLDER folderguid="33FCD2FF7CA84A17BB3DEADF3591798C" foldername="SWF" folderpath="swf"/>
+<EXPORTFOLDER folderguid="8A14BC726D0546A28B0074A5C6DC8255" foldername="Structural Images" folderpath="structuralimages"/>
+<EXPORTFOLDER folderguid="A4D99151E18F4274A2A4BBE23EE0635B" foldername="Videos" folderpath="videos"/>
+<EXPORTFOLDER folderguid="B452E699A3C64FD39BBA6D021C7B21F5" foldername="Media" folderpath="images"/>
+<EXPORTFOLDER folderguid="CC05A4A76D3F4F93B69DD7483E9B6592" foldername="Bio Images" folderpath="images"/>
+<EXPORTFOLDER folderguid="E4FC0D06B3484A14BB2CE68F77BE11EC" foldername="Content Images" folderpath="images"/>
+</EXPORTFOLDERS>
+</PROJECTVARIANT>
+<PROJECTVARIANT guid="8AE17EDA1AD84840831D5837EC3D5687" name="HTML (Draft)" exportname="OTC webdev">
+<EXPORTFOLDERS>
+<EXPORTFOLDER folderguid="00000000000000000000000000000100" foldername="Published pages" folderpath=""/>
+<EXPORTFOLDER folderguid="33FCD2FF7CA84A17BB3DEADF3591798C" foldername="SWF" folderpath=""/>
+<EXPORTFOLDER folderguid="8A14BC726D0546A28B0074A5C6DC8255" foldername="Structural Images" folderpath=""/>
+<EXPORTFOLDER folderguid="A4D99151E18F4274A2A4BBE23EE0635B" foldername="Videos" folderpath=""/>
+<EXPORTFOLDER folderguid="B452E699A3C64FD39BBA6D021C7B21F5" foldername="Media" folderpath=""/>
+<EXPORTFOLDER folderguid="CC05A4A76D3F4F93B69DD7483E9B6592" foldername="Bio Images" folderpath=""/>
+<EXPORTFOLDER folderguid="E4FC0D06B3484A14BB2CE68F77BE11EC" foldername="Content Images" folderpath=""/>
+</EXPORTFOLDERS>
+</PROJECTVARIANT>
+<PROJECTVARIANT guid="78B00DC922B040168BE0F9D00038EF89" name="Mobile_Testing" exportname="Mobile test">
+<EXPORTFOLDERS>
+<EXPORTFOLDER folderguid="00000000000000000000000000000100" foldername="Published pages" folderpath=""/>
+<EXPORTFOLDER folderguid="33FCD2FF7CA84A17BB3DEADF3591798C" foldername="SWF" folderpath="swf"/>
+<EXPORTFOLDER folderguid="8A14BC726D0546A28B0074A5C6DC8255" foldername="Structural Images" folderpath="structuralimages"/>
+<EXPORTFOLDER folderguid="A4D99151E18F4274A2A4BBE23EE0635B" foldername="Videos" folderpath="videos"/>
+<EXPORTFOLDER folderguid="B452E699A3C64FD39BBA6D021C7B21F5" foldername="Media" folderpath="images"/>
+<EXPORTFOLDER folderguid="CC05A4A76D3F4F93B69DD7483E9B6592" foldername="Bio Images" folderpath="images"/>
+<EXPORTFOLDER folderguid="E4FC0D06B3484A14BB2CE68F77BE11EC" foldername="Content Images" folderpath="images"/>
+</EXPORTFOLDERS>
+</PROJECTVARIANT>
+<PROJECTVARIANT guid="11A4461DBB1F4F078609E11CC854969F" name="Mobile_Testing (Draft)" exportname="OTC www">
+<EXPORTFOLDERS>
+<EXPORTFOLDER folderguid="00000000000000000000000000000100" foldername="Published pages" folderpath=""/>
+<EXPORTFOLDER folderguid="33FCD2FF7CA84A17BB3DEADF3591798C" foldername="SWF" folderpath=""/>
+<EXPORTFOLDER folderguid="8A14BC726D0546A28B0074A5C6DC8255" foldername="Structural Images" folderpath=""/>
+<EXPORTFOLDER folderguid="A4D99151E18F4274A2A4BBE23EE0635B" foldername="Videos" folderpath=""/>
+<EXPORTFOLDER folderguid="B452E699A3C64FD39BBA6D021C7B21F5" foldername="Media" folderpath=""/>
+<EXPORTFOLDER folderguid="CC05A4A76D3F4F93B69DD7483E9B6592" foldername="Bio Images" folderpath=""/>
+<EXPORTFOLDER folderguid="E4FC0D06B3484A14BB2CE68F77BE11EC" foldername="Content Images" folderpath=""/>
+</EXPORTFOLDERS>
+</PROJECTVARIANT>
+<PROJECTVARIANT guid="79B6D92F4B9444BE9BC99C2857A5C35D" name="PDF" exportname="OTC webdev">
+<EXPORTFOLDERS>
+<EXPORTFOLDER folderguid="00000000000000000000000000000100" foldername="Published pages" folderpath=""/>
+<EXPORTFOLDER folderguid="33FCD2FF7CA84A17BB3DEADF3591798C" foldername="SWF" folderpath=""/>
+<EXPORTFOLDER folderguid="8A14BC726D0546A28B0074A5C6DC8255" foldername="Structural Images" folderpath=""/>
+<EXPORTFOLDER folderguid="A4D99151E18F4274A2A4BBE23EE0635B" foldername="Videos" folderpath=""/>
+<EXPORTFOLDER folderguid="B452E699A3C64FD39BBA6D021C7B21F5" foldername="Media" folderpath=""/>
+<EXPORTFOLDER folderguid="CC05A4A76D3F4F93B69DD7483E9B6592" foldername="Bio Images" folderpath=""/>
+<EXPORTFOLDER folderguid="E4FC0D06B3484A14BB2CE68F77BE11EC" foldername="Content Images" folderpath=""/>
+</EXPORTFOLDERS>
+</PROJECTVARIANT>
+<PROJECTVARIANT guid="2DC7E32DEB9D4FB790D2C64A2543C7F6" name="PDF (Draft)" exportname="OTC www">
+<EXPORTFOLDERS>
+<EXPORTFOLDER folderguid="00000000000000000000000000000100" foldername="Published pages" folderpath=""/>
+<EXPORTFOLDER folderguid="33FCD2FF7CA84A17BB3DEADF3591798C" foldername="SWF" folderpath=""/>
+<EXPORTFOLDER folderguid="8A14BC726D0546A28B0074A5C6DC8255" foldername="Structural Images" folderpath=""/>
+<EXPORTFOLDER folderguid="A4D99151E18F4274A2A4BBE23EE0635B" foldername="Videos" folderpath=""/>
+<EXPORTFOLDER folderguid="B452E699A3C64FD39BBA6D021C7B21F5" foldername="Media" folderpath=""/>
+<EXPORTFOLDER folderguid="CC05A4A76D3F4F93B69DD7483E9B6592" foldername="Bio Images" folderpath=""/>
+<EXPORTFOLDER folderguid="E4FC0D06B3484A14BB2CE68F77BE11EC" foldername="Content Images" folderpath=""/>
+</EXPORTFOLDERS>
+</PROJECTVARIANT>
+<PROJECTVARIANT guid="B72FEA180FEF4E6DA6137E7727F73F47" name="testing" exportname="OTC webdev">
+<EXPORTFOLDERS>
+<EXPORTFOLDER folderguid="00000000000000000000000000000100" foldername="Published pages" folderpath="test\online"/>
+<EXPORTFOLDER folderguid="33FCD2FF7CA84A17BB3DEADF3591798C" foldername="SWF" folderpath="swf"/>
+<EXPORTFOLDER folderguid="8A14BC726D0546A28B0074A5C6DC8255" foldername="Structural Images" folderpath="structuralimages"/>
+<EXPORTFOLDER folderguid="A4D99151E18F4274A2A4BBE23EE0635B" foldername="Videos" folderpath="videos"/>
+<EXPORTFOLDER folderguid="B452E699A3C64FD39BBA6D021C7B21F5" foldername="Media" folderpath="images"/>
+<EXPORTFOLDER folderguid="CC05A4A76D3F4F93B69DD7483E9B6592" foldername="Bio Images" folderpath="images"/>
+<EXPORTFOLDER folderguid="E4FC0D06B3484A14BB2CE68F77BE11EC" foldername="Content Images" folderpath="images"/>
+</EXPORTFOLDERS>
+</PROJECTVARIANT>
+<PROJECTVARIANT guid="6339FB29EA3948359B5409ED5D7A90E1" name="testing (Draft)" exportname="OTC www">
+<EXPORTFOLDERS>
+<EXPORTFOLDER folderguid="00000000000000000000000000000100" foldername="Published pages" folderpath=""/>
+<EXPORTFOLDER folderguid="33FCD2FF7CA84A17BB3DEADF3591798C" foldername="SWF" folderpath=""/>
+<EXPORTFOLDER folderguid="8A14BC726D0546A28B0074A5C6DC8255" foldername="Structural Images" folderpath=""/>
+<EXPORTFOLDER folderguid="A4D99151E18F4274A2A4BBE23EE0635B" foldername="Videos" folderpath=""/>
+<EXPORTFOLDER folderguid="B452E699A3C64FD39BBA6D021C7B21F5" foldername="Media" folderpath=""/>
+<EXPORTFOLDER folderguid="CC05A4A76D3F4F93B69DD7483E9B6592" foldername="Bio Images" folderpath=""/>
+<EXPORTFOLDER folderguid="E4FC0D06B3484A14BB2CE68F77BE11EC" foldername="Content Images" folderpath=""/>
+</EXPORTFOLDERS>
+</PROJECTVARIANT>
+</PROJECTVARIANTS>
+</EXPORTSETTINGS>
+</LANGUAGEVARIANT>
+</LANGUAGEVARIANTS>
+
+<LINKSFROM languagevariantid="ENU" guid="37E0053E19BF4419A78C2B70D16067C8" stopsitemapsearch="0" deleteexpiredpage="0"><LINK languagevariantid="ENU" relationguid="AB8A28BA06CA40F9A22C06825BF5BA01" datebegin="0" dateend="0" datestate="1" release="0" issitemaplink="0" isreference="0" connectedbykeyword="0" value="con_body" pageheadline="Nice Sprites" ok="1" guid="8CF1092FF9C348E5A4F5B5A4CD52B030" templateelementguid="FA29721D9CCA465E9ED59D1C1EB7E1B3" pageguid="AAB05394A29341BEA0211A756ACD3B2B" eltflags="0" flags="0" eltrequired="0" eltdragdrop="0" islink="2" formularorderid="0" orderid="1" status="0" name="con_body" eltname="con_body" aliasname="con_body" variable="con_body" istargetcontainer="0" type="28" elttype="28" templateelementflags="0" templateelementislink="2" reddotdescription="" workflowname="" ismainlink="1"/></LINKSFROM><MAINLINK guid="8CF1092FF9C348E5A4F5B5A4CD52B030" name="con_body" pageguid="AAB05394A29341BEA0211A756ACD3B2B" pageheadline="Nice Sprites"/><PROJECTVARIANTS><PROJECTVARIANT guid="076101C773C646ED9F74A44455BB618A" name="HTML" checked="1"><TEMPLATEVARIANTS><TEMPLATEVARIANT guid="141953137B724F369A428EB566803DEF" name="HTML" generatorstatustext="Will be published"/></TEMPLATEVARIANTS></PROJECTVARIANT><PROJECTVARIANT guid="78B00DC922B040168BE0F9D00038EF89" name="Mobile_Testing" checked="0"><TEMPLATEVARIANTS><TEMPLATEVARIANT guid="141953137B724F369A428EB566803DEF" name="HTML" generatorstatustext="Will be published"/></TEMPLATEVARIANTS></PROJECTVARIANT><PROJECTVARIANT guid="B72FEA180FEF4E6DA6137E7727F73F47" name="testing" checked="0"><TEMPLATEVARIANTS><TEMPLATEVARIANT guid="141953137B724F369A428EB566803DEF" name="HTML" generatorstatustext="Will be published"/></TEMPLATEVARIANTS></PROJECTVARIANT></PROJECTVARIANTS></PAGE>
+</IODATA><IODATA><PAGE guid="37E0053E19BF4419A78C2B70D16067C8" sessionkey="90DDD3B98530466D83BF485CC086548F" dialoglanguageid="ENG" languagevariantid="ENU"><ELEMENTS action="load" pageguid="37E0053E19BF4419A78C2B70D16067C8" parenttable="PAG" guid="37E0053E19BF4419A78C2B70D16067C8"><ELEMENT languagevariantid="ENU" defaultlanguagevariantid="" languageindependent="0" guid="D6CCBB5A12B84B8D8FBB22B6E5833907" templateelementguid="6C1782E9ACC04A40AF9E23BDA26B5C5F" pageguid="37E0053E19BF4419A78C2B70D16067C8" eltflags="0" flags="2228224" eltrequired="0" formularorderid="0" orderid="1" islink="0" name="stf_contentClassId" eltname="stf_contentClassId" aliasname="stf_contentClassId" variable="stf_contentClassId" type="1" elttype="1" templateelementflags="2228224" templateelementislink="0" value="" reddotdescription="Content Class Identifier"/><ELEMENT languagevariantid="ENU" defaultlanguagevariantid="" languageindependent="0" guid="14D55ADAD5DD43EDA2C4C4C50ED3E311" templateelementguid="A371457542114B7E8B4999A4740B16EA" pageguid="37E0053E19BF4419A78C2B70D16067C8" eltflags="0" flags="2228224" eltrequired="0" formularorderid="0" orderid="1" islink="0" name="stf_teaser" eltname="stf_teaser" aliasname="stf_teaser" variable="stf_teaser" type="1" elttype="1" templateelementflags="2228224" templateelementislink="0" value="" reddotdescription="Optional Teaser"/><ELEMENT languagevariantid="ENU" defaultlanguagevariantid="" languageindependent="0" editoroptions="2002632572" guid="862E37F1B9C74A1380D4B31F0A85788F" templateelementguid="947462FC9BB94CEA8674D9A243895477" pageguid="37E0053E19BF4419A78C2B70D16067C8" eltflags="0" flags="64" eltrequired="0" formularorderid="0" orderid="1" islink="0" name="txt_list_desc" eltname="txt_list_desc" aliasname="txt_list_desc" variable="txt_list_desc" eltstylesheetdata="" type="32" elttype="32" templateelementflags="64" templateelementislink="0" value="" reddotdescription="Description for this list of links"/></ELEMENTS><LINKS action="load" pageguid="37E0053E19BF4419A78C2B70D16067C8" parenttable="PAG" guid="37E0053E19BF4419A78C2B70D16067C8"><LINK languagevariantid="ENU" defaultlanguagevariantid="" languageindependent="0" guid="E992C42E60A448D2A172D909482429E2" templateelementguid="F348A7D1088A432E8C586FCBA52079B4" pageguid="37E0053E19BF4419A78C2B70D16067C8" eltflags="0" flags="5242896" eltrequired="0" formularorderid="0" orderid="1" islink="10" name="lst_list1" eltname="lst_list1" aliasname="lst_list1" variable="lst_list1" type="13" elttype="13" templateelementflags="5242896" templateelementislink="2" value="lst_list1"/><LINK languagevariantid="ENU" defaultlanguagevariantid="" languageindependent="0" guid="F1C4A621067C4CAF9917F8D7DE330D5D" templateelementguid="4776BA6986014A12A549046378FEA841" pageguid="37E0053E19BF4419A78C2B70D16067C8" eltflags="0" flags="5242896" eltrequired="0" formularorderid="0" orderid="1" islink="10" name="lst_list2" eltname="lst_list2" aliasname="lst_list2" variable="lst_list2" type="13" elttype="13" templateelementflags="5242896" templateelementislink="2" value="lst_list2"/></LINKS></PAGE>
+</IODATA>
+</IODATA>

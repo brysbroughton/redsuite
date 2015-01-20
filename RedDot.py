@@ -139,7 +139,7 @@ def cache(guid, res):
     No return value
     """
     #todo - temporarily disabling cache
-    return
+    #return
     if not os.path.exists(cachepath):
         os.mkdir(cachepath)
     
@@ -154,7 +154,7 @@ def cached(guid):
     Returns boolean
     """
     #todo - temporarily disabling cache
-    return False
+    #return False
     return os.path.exists(cachepath+'/'+guid+'.xml')
     
 
@@ -164,7 +164,7 @@ def getcached(guid):
     """
     #todo
     #make cache enable/disable functions
-    raise Exception("File not in local cache")#temporarily 'disabling cache'
+    #raise Exception("File not in local cache")#temporarily 'disabling cache'
 
     if cached(guid):
         print 'loading cached response '+cachepath+guid+'.xml'
