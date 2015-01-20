@@ -44,8 +44,11 @@ class RedSession(object):
         o = RRob()
         o.setrql('<IODATA><ADMINISTRATION action="login" name="' + self.user + '" password="' + self.password + '" /></IODATA>', True)
         o.request(True)
-
-        loginguid = o.fetch('./LOGIN', 'guid', 1)[0]
+        loginguid = None
+        try:
+            loginguid = o.fetch('./LOGIN', 'guid', 1)[0]
+        except Exception as ex:
+            pass#login error
         if loginguid is not None:
             if len(loginguid) > 0:
                 self.setloginguid(loginguid)

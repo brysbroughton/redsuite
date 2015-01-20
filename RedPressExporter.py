@@ -5,7 +5,7 @@ import RedDot as red
 import RedRequestObj as RRob
 import RD2WXR_Definitions as wxr
 import RedSession
-import datetime, time
+import datetime, time, re
 import pprint
 
 sesh = RedSession.sesh
@@ -13,6 +13,7 @@ sesh = RedSession.sesh
 class RedPress(object):
 
     f = None
+    assetpath = '/'
 
     def __init__(self):
         pass
@@ -27,7 +28,7 @@ class RedPress(object):
         val = tup[1]
         if fun == 'placeholder':
             if val == 'wp_filename':
-                self.f.write(wxr.wp_fileurl(rro.fetch('.//PAGE', 'headline')[0]))
+                self.f.write(wxr.wp_fileurl(rro.fetch('.//PAGE[@headline]', 'headline')[0]))
             else:
                 #case 0: placeholder is in PAGE tag
                 #   just print here
@@ -85,6 +86,14 @@ class RedPress(object):
                 print('unexpected page input: ' + p)
         self.f.write(wxr.footer)
         self.f.close()
+
+    def exportsite(self, root):
+        """
+        Takes tuple describing root page of site
+            (reddot_guid, wordpress_id, wordpress_title)
+        *Root page must have already been imported to Wordpress
+        """
+        pass
         
     def exportfoundation(self, guid):
         o = RRob.RedRequestPage(guid)
@@ -294,20 +303,22 @@ class RedPress(object):
         typ = o.fetch('.//ELT', 'elttype')[0]
         val = o.fetch('.//ELT', 'value')[0]
 
+        if len(val) == 0:
+            return #todo - is this safe for all element types?
+
         #standard field
         if typ in set(['1','5','39','48','999','50','51','1000']):
             self.f.write(val)
         #text
         elif typ in set(['31','32']):
-            t = RRob.RedRequestText(guid)
-            self.f.write(t.request())
+            self.exporttext(guid)
         #image
         elif typ == '2':
             #later can maybe extend to use properties of elements and get 
-            folderguid = o.fetch('.//ELT', 'folderguid')[0]
-            out = self.getfolderpath(folderguid)+val
+            subdirguid = o.fetch('.//ELT', 'subdirguid')[0]
+            out = self.getassetpath(subdirguid)+val
             print('image out: '+out)
-            self.f.write(self.getfolderpath(folderguid)+val)
+            self.f.write(self.getassetpath(subdirguid)+val)
         #option list
         elif typ == '8':
             #if value=''
@@ -324,12 +335,43 @@ class RedPress(object):
         #media
         elif typ == '38':
             #later can maybe extend to use properties of elements and get attributes
-            folderguid = o.fetch('.//ELT', 'folderguid')[0]
-            print('image out: '+self.getfolderpath(folderguid)+val)
-            self.f.write(self.getfolderpath(folderguid)+val)
+            subdirguid = o.fetch('.//ELT', 'subdirguid')[0]
+            print('image out: '+self.getassetpath(subdirguid)+val)
+            self.f.write(self.getassetpath(subdirguid)+val)
         else:
             print('warning: unhandled elem type exported: '+typ+' '+guid)
             self.f.write('[element guid:'+guid+']')
+
+
+    def exporttext(self, guid):
+        """
+        Requests text blob and evaluates any [ioID]guid's before writing out
+        """
+        t = RRob.RedRequestText(guid)
+        text = t.request(True)
+        ioIDs = re.findall('\[ioID\][A-F0-9]{32}', text)
+        for ioID in ioIDs:
+            ioguid = ioID.replace('[ioID]', '')
+            f = RRob.RedRequestFolder(ioguid)
+            fres = f.request(True)
+            if(f.err()):
+                #self.f.write(self.getlinktopage(ioguid))
+                text = text.replace(ioID, self.getlinktopage(ioguid))
+            else:
+                #self.f.write(self.getassetpath(ioguid))
+                text = text.replace(self.getassetpath(ioguid))
+        self.f.write(text)
+        
+
+    def getassetpath(self, guid):
+        """
+        Returns arbitrarily defined path for exported assets
+        """
+        return self.assetpath
+
+
+    def setassetpath(self, path):
+        self.assetpath = path
 
 
     def getfolderpath(self, guid):
@@ -340,6 +382,7 @@ class RedPress(object):
         f = RRob.RedRequestFolder(guid)
         f.request()
         path = f.fetch('.//FOLDER', 'path')[0]
+        pprint.pprint(path)
         path = path.replace('\\', '')
         #todo - change host to new system host
         return '//www.otc.edu/'+path+'/'
@@ -350,7 +393,11 @@ class RedPress(object):
         Returns link to foundation page or
         None if input guid is not a foundation page
         """
-        return '#[link_guid_'+guid+']'
+        p = RRob.RedRequestPage(guid)
+        p.request()
+        path = p.fetch(".//PROJECTVARIANT[@name='HTML']//EXPORTFOLDER[@foldername='Published pages']", 'folderpath')[0]
+        fname = wxr.wp_fileurl(p.fetch(".//PAGE[@headline]", 'headline')[0])
+        return path+'/'+fname
 
 
 rp = RedPress()

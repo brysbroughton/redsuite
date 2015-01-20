@@ -43,18 +43,26 @@ class RedRequestObj(object):
             elems = map(lambda x:x.tag, elems)
         else:
             #pprint.pprint(elems[0].attrib)
-            try:
-                elems = map(lambda x:x.attrib[attr], elems)
-            except KeyError:
-                #raise Exception(path + ' has no attribute called '+attr)
-                pass
+            results = []
+            for e in elems:
+                try:
+                    results.append(e.attrib[attr])
+                    #elems = map(lambda x:x.attrib[attr], elems)
+                except KeyError:
+                    #raise Exception(path + ' has no attribute called '+attr)
+                    print(path + ' has no attribute called '+attr)
+                    pass
+            if len(results) == 0:
+                raise Exception(path + ' has no attribute called '+attr)
+            else:
+                elems = results
         if limit is not None:
             elems = elems[0:limit]
         return elems
 
     def request(self, nocache=False):
         if nocache:
-            print 'no cache request '+self.guid
+            print 'no cache request '
             conn = httplib.HTTPSConnection(red.host)
             params = urllib.urlencode({'RQL': self.RQL})
             headers = {"Content-type": "application/x-www-form-urlencoded", "Accept": "application/x-ms-application,", "Connection": "Keep-Alive", "POST": params}
@@ -99,12 +107,15 @@ class RedRequestObj(object):
         return self.RQL
     
     def err(self):
+        errorhappened = False
         if self.redResponse is None:
             print 'No response received from RedDot'
+            errorhappened = True
         else:
             try:
                 node = ET.fromstring(self.redResponse)
                 if node.tag == 'ERROR':
+                    errorhappened = True
                     errcode = node.text.upper()
                     if red.RD_Error_Messages.has_key(errcode):
                         raise Exception( red.RD_Error_Messages[errcode] )
@@ -114,8 +125,10 @@ class RedRequestObj(object):
                     pass
                     #print 'Unknown Error>>>\n' + self.redResponse
             except Exception as ex:
+                errorhappened = True
                 print 'Warning: RedDot returned invalid xml:\n' + self.redResponse
                 pass
+        return errorhappened
 
 
 class RedRequestLink(RedRequestObj):
