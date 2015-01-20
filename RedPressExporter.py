@@ -122,7 +122,7 @@ class RedPress(object):
         o.request()
         #get template name
         if wxr_def is None:
-            wxr_def = o.fetch('.//PAGE', 'templatetitle')[0]
+            wxr_def = o.fetch('.//PAGE[@templatetitle]', 'templatetitle')[0]
         print('export page of type: '+wxr_def)#debug
         ast = wxr.parse(wxr.wpds[wxr_def]['html'])
         #pprint.pprint(ast)
