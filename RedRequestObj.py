@@ -54,7 +54,7 @@ class RedRequestObj(object):
 
     def request(self, nocache=False):
         if nocache:
-            print 'no cache'
+            print 'no cache request '+self.guid
             conn = httplib.HTTPSConnection(red.host)
             params = urllib.urlencode({'RQL': self.RQL})
             headers = {"Content-type": "application/x-www-form-urlencoded", "Accept": "application/x-ms-application,", "Connection": "Keep-Alive", "POST": params}

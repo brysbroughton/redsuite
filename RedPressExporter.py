@@ -22,7 +22,7 @@ class RedPress(object):
         Takes tuple of (funcname, arg) and a red request object
         Calls appropriate export function
         """
-        pprint.pprint(tup)
+        #pprint.pprint(tup)
         fun = tup[0]
         val = tup[1]
         if fun == 'placeholder':
@@ -213,7 +213,6 @@ class RedPress(object):
         elif islink == '10':
             r = RRob.RedRequestReference(guid)
             r.request(True)#True = don't cache tree segment
-            print(r.redResponse)
             ref_guid = ''
             ref_type = ''
             try:
