@@ -214,12 +214,15 @@ class RedPress(object):
             r = RRob.RedRequestReference(guid)
             r.request(True)#True = don't cache tree segment
             print(r.redResponse)
+            ref_guid = ''
+            ref_type = ''
             try:
                 ref_guid = r.fetch('.//TREESEGMENTS/SEGMENT[last()]', 'guid')[0]
                 ref_type = r.fetch('.//TREESEGMENTS/SEGMENT[last()]', 'type')[0]
             except Exception as ex:
                 #A reference with no tree segments is the un-recoverable assign url on anchor
                 self.f.write('[assigned url on link guid'+guid+']')
+                return
                 pass
             if ref_type == 'link':
                 self.exportlist(ref_guid, wxr_def)

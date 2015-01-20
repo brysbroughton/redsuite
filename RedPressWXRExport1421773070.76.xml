@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0"
+	xmlns:excerpt="http://wordpress.org/export/1.2/excerpt/"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:wp="http://wordpress.org/export/1.2/"
+>
+<channel>
+	<title>Ozarks Technical Community College</title>
+	<link>http://philip.ozarkstech.org</link>
+	<description></description>
+	<pubDate>Wed, 03 Dec 2014 20:52:45 +0000</pubDate>
+	<language>en-US</language>
+	<wp:wxr_version>1.2</wp:wxr_version>
+	<wp:base_site_url>http://philip.ozarkstech.org/</wp:base_site_url>
+	<wp:base_blog_url>http://philip.ozarkstech.org/</wp:base_blog_url>
+	<wp:author><wp:author_id>2</wp:author_id>
+        <wp:author_login>brys</wp:author_login>
+        <wp:author_email>broughtb@otc.edu</wp:author_email>
+        <wp:author_display_name><![CDATA[Brys Broughton]]></wp:author_display_name>
+        <wp:author_first_name><![CDATA[Brys]]></wp:author_first_name><wp:author_last_name><![CDATA[Broughton]]></wp:author_last_name></wp:author>
+	<generator>RedSuite v2.0</generator>
+            <item>
+            <title>Nice Sprites</title>
+            <link>http://philip.ozarkstech.org/Nice-Sprites</link>
+            <pubDate></pubDate><dc:creator></dc:creator>
+            <guid isPermaLink="false">http://philip.ozarkstech.org/Nice-Sprites/</guid>
+            <description></description>
+            <content:encoded><![CDATA[
+            
+            <h4>Small Bulleted Link List</h4>
+            
+            <div class="two-column_links wrapper">
+                <ul class="feature_links two-column_links_1 wrapper">
+                    <li><a href="#[link_guid_EE71802E2A2F43B7B1F43147D13E9FA7]"><span class="feature_links_span">Forms test 1</span></a></li>
+
+                </ul>
+                <ul class="feature_links two-column_links_2 wrapper">
+                    <li><a href="#[link_guid_EE71802E2A2F43B7B1F43147D13E9FA7]"><span class="feature_links_span">Forms test 1</span></a></li>
+
+                </ul>
+            </div>
+            <h4>Large Bulleted Link List</h4>
+            
+            <div class="two-column_links wrapper">
+                <ul class="big_links two-column_links_1 wrapper">
+                    <li><a href="#[link_guid_1B02D134AE6E44FD901CCE86EA5563D6]"><span class="big_links_span">Nav Tester</span></a></li>
+<li><a href="#"><span class="big_links_span">Large List Link 01</span></a></li>
+<li><a href="#"><span class="big_links_span">Large List Link 02</span></a></li>
+<li><a href="#"><span class="big_links_span">Large List Link 03</span></a></li>
+
+                </ul>
+                <ul class="big_links two-column_links_2 wrapper">
+                    [assigned url on link guid16649B8BBF404E1699228D403EA7498E]
+                </ul>
+            </div>
+            <div class="content_bio_box_large wrapper">
+                <img src="//www.otc.edu/E:Assets/" border="0" alt="Bio Box (Large) 237" class="content_bio_image" />
+                <div class="content_bio_info wrapper">
+                    <a href="mailto:email@mail.com" class="mail_icon" title="Email Bio Box (Large) 237"><span>Email Bio Box (Large) 237</span></a>
+                    <h3>Bio Box (Large) 237</h3>
+                    <h4>poi'j</h4>
+                    <h5>uoib uhbxc oiucb oiba cba pab pibpa ipiab pbapoi bapia oiba ipoabia iab iapob iabaib aiba iab iba aibaibiaba ibaiaibaiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiw</h5>
+                    <h5>hiu</h5>
+                    <h5>hi</h5>
+                    <h5>uh</h5>
+                    <h5>iuh</h5><h5 class="highlight-blue">Office: poij</h5>
+                    <h5 class="highlight-blue">Phone: 445-589-8956</h5>
+                </div>
+                <p> Bio means biography Bio means biographyBio means </p>
+            </div>
+            <div class="dropper wrapper">
+                <h4 class="dropControl">Text - H4 (Sub) Heading and Paragraph (retractible) 236</h4>
+                <div class="dropText"><IODATA><ELT action="load" subelements="1" sessionkey="90DDD3B98530466D83BF485CC086548F" dialoglanguageid="ENG" languagevariantid="ENU" ok="1" eltlanguageindependent="0" eltdeactivatetextfilter="0" editoroptions="577027356" guid="4D5419D8F7F54225B2D611C7F9776943" templateelementguid="7621D029BE9E4F4480EFD0CA4B3BB02C" pageguid="089FC5835B194B92A5E1E744634BC64B" eltflags="0" eltrequired="0" eltdragdrop="0" islink="0" formularorderid="0" orderid="1" status="0" name="txt_text" eltname="txt_text" aliasname="txt_text" variable="txt_text" eltstylesheetdata="" type="32" elttype="32" templateelementflags="0" templateelementislink="0" value=" This is the retractable text" reddotdescription="Text content for page" flags="16777216" manuallysorted="-1" useconnection="1" projectguid="F027326883D14209BF89C10ADD453837" userguid="E94BD09105A64CDDB94A0BA097958424" pagestatus="1" eltdefaultselectionguid=""><SELECTIONS>
+	</SELECTIONS></ELT>
+</IODATA></div>
+            </div>
+            <h3>FAQs - List of FAQs 234</h3>
+            
+            
+            <div class="faq_item wrapper">
+                <div class="faq_question wrapper"><h4>Foundation - Single FAQ Page 235</h4></div>
+                <div class="faq_answer wrapper"><IODATA><ELT action="load" subelements="1" sessionkey="90DDD3B98530466D83BF485CC086548F" dialoglanguageid="ENG" languagevariantid="ENU" ok="1" eltlanguageindependent="0" eltdeactivatetextfilter="0" editoroptions="577551644" guid="C8D22582822D41EBA803C82335FD4968" templateelementguid="DB63FB9146FC43829683B809857F5DA7" pageguid="950DF372EB7C4D7CA57B30C6600978B0" eltflags="64" eltrequired="0" eltdragdrop="1" islink="0" formularorderid="0" orderid="1" status="0" name="txt_text" eltname="txt_text" aliasname="txt_text" variable="txt_text" eltstylesheetdata="&lt;STYLE&gt; &lt;/STYLE&gt;" type="32" elttype="32" templateelementflags="64" templateelementislink="0" value=" text content" reddotdescription="Text content for page" flags="16777280" manuallysorted="-1" useconnection="1" projectguid="F027326883D14209BF89C10ADD453837" userguid="E94BD09105A64CDDB94A0BA097958424" pagestatus="1" eltdefaultselectionguid=""><SELECTIONS>
+	</SELECTIONS></ELT>
+</IODATA></div>
+            </div>
+            <h4>Links - File Download List and Image (One Column with Image) 208</h4>
+            <img src="//www.otc.edu/E:Assets/mcsp-photo.jpg" border="0" alt="" />
+            <p> There's no file here either</p>
+            <div id="links_and_image" class="wrapper">
+                <ul class="resources_links two-column_links_1 wrapper">
+                
+                    <li class="wrapper">
+                        <a href="//www.otc.edu/E:Assets/spoof.avi" title="avi">
+                            <span class="resources_links_span">avi</span>
+                            <span class="rl_desc">Empty file</span> 
+                        </a>
+                    </li>
+                    <li class="wrapper">
+                        <a href="//www.otc.edu/E:Assets/spoof.doc" title="bmp">
+                            <span class="resources_links_span">bmp</span>
+                            <span class="rl_desc"></span> 
+                        </a>
+                    </li>
+                    <li class="wrapper">
+                        <a href="//www.otc.edu/E:Assets/spoof.doc" title="doc">
+                            <span class="resources_links_span">doc</span>
+                            <span class="rl_desc"></span> 
+                        </a>
+                    </li>
+                    <li class="wrapper">
+                        <a href="//www.otc.edu/E:Assets/spoof.fla" title="fla">
+                            <span class="resources_links_span">fla</span>
+                            <span class="rl_desc"></span> 
+                        </a>
+                    </li>
+                    <li class="wrapper">
+                        <a href="//www.otc.edu/E:Assets/spoof.flv" title="flv">
+                            <span class="resources_links_span">flv</span>
+                            <span class
