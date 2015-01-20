@@ -32,7 +32,7 @@ class RedPress(object):
                 #case 0: placeholder is in PAGE tag
                 #   just print here
                 try:
-                    pval = rro.fetch('.//PAGE', val)[0]
+                    pval = rro.fetch('.//PAGE[@'+ val+']', val)[0]
                     self.f.write(pval)
                     return
                 except Exception as ex:
@@ -214,8 +214,13 @@ class RedPress(object):
             r = RRob.RedRequestReference(guid)
             r.request(True)#True = don't cache tree segment
             print(r.redResponse)
-            ref_guid = r.fetch('.//TREESEGMENTS/SEGMENT[last()]', 'guid')[0]
-            ref_type = r.fetch('.//TREESEGMENTS/SEGMENT[last()]', 'type')[0]
+            try:
+                ref_guid = r.fetch('.//TREESEGMENTS/SEGMENT[last()]', 'guid')[0]
+                ref_type = r.fetch('.//TREESEGMENTS/SEGMENT[last()]', 'type')[0]
+            except Exception as ex:
+                #A reference with no tree segments is the un-recoverable assign url on anchor
+                self.f.write('[assigned url on link guid'+guid+']')
+                pass
             if ref_type == 'link':
                 self.exportlist(ref_guid, wxr_def)
             elif ref_type == 'page':

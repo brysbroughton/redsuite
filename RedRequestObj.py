@@ -46,7 +46,8 @@ class RedRequestObj(object):
             try:
                 elems = map(lambda x:x.attrib[attr], elems)
             except KeyError:
-                raise Exception(path + ' has no attribute called '+attr)
+                #raise Exception(path + ' has no attribute called '+attr)
+                pass
         if limit is not None:
             elems = elems[0:limit]
         return elems
