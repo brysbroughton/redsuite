@@ -97,6 +97,44 @@ wpds = {
             """
     },
     
+    'Generic Sub Foundation':
+    {
+        'html':
+            """
+            <item>
+            <title><%headline/%></title>
+            <link>"""+wordpresshost+"""<%wp_filename/%></link>
+            <pubDate></pubDate><dc:creator></dc:creator>
+            <guid isPermaLink="false">"""+wordpresshost+"""<%wp_filename/%>/</guid>
+            <description></description>
+            <content:encoded><![CDATA[
+            <%IoRangeContainer%>con_body<%/IoRangeContainer%>
+            ]]></content:encoded>
+            <excerpt:encoded><![CDATA['<%headline/%>']]></excerpt:encoded>
+		<wp:post_id></wp:post_id>
+		<wp:post_date></wp:post_date>
+		<wp:post_date_gmt></wp:post_date_gmt>
+		<wp:comment_status>closed</wp:comment_status>
+		<wp:ping_status>closed</wp:ping_status>
+		<wp:post_name><%wp_filename/%></wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent><%wp_parentid/%></wp:post_parent>
+		<wp:menu_order>1</wp:menu_order>
+		<wp:post_type>page</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:postmeta>
+			<wp:meta_key>_wp_page_template</wp:meta_key>
+			<wp:meta_value><![CDATA[default]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_edit_last</wp:meta_key>
+			<wp:meta_value><![CDATA[2]]></wp:meta_value>
+		</wp:postmeta>
+            </item>
+            """
+    },
+    
     'Text - H3 (Main) Heading and Paragraph':
     {
         'html':"""<h3><%headline/%></h3>\n<div><%txt_text/%></div>"""
@@ -215,13 +253,13 @@ wpds = {
     'Text - H3 (Main) Heading and Paragraph (with images)':
     {
         'html':"""            <h3><%headline/%></h3>
-        <p><%txt_text/%><p>"""
+        <%txt_text/%>"""
     },
     
     'Text - H4 (Sub) Heading  and Paragraph (with images)':
     {
         'html':"""            <h4><%headline/%></h4>
-        <p><%txt_text/%></p>"""
+        <%txt_text/%>"""
     },
     
     'Text - H4 (Sub) Heading and Paragraph (retractible)':
@@ -237,7 +275,7 @@ wpds = {
     {
         'html':"""
         <h4><%headline/%></h4>
-        <%IoRangeConditional%><p><%txt_text/%></p><%/IoRangeConditional%>
+        <%IoRangeConditional%><div class="gallery_desc"><%txt_text/%></div><%/IoRangeConditional%>
         <div id="gallery" class="wrapper">
         <%IoRangeListContent%>list_galleryImages<%/IoRangeListContent%>
         </div>"""
@@ -311,7 +349,7 @@ wpds = {
         'html':
             """
         <h4><%headline/%></h4>
-        <%IoRangeConditional%><p><%txt_text/%><p><%/IoRangeConditional%>
+        <%IoRangeConditional%><div class="map_desc"><%txt_text/%></div><%/IoRangeConditional%>
         <div class="mapbox">
             <iframe width="625" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="<%IoRangeListLink%><%anc_googleMapIframeSourceLink%>anc_googleMapIframeSourceLink<%/anc_googleMapIframeSourceLink%><%/IoRangeListLink%>"></iframe>
         </div>"""

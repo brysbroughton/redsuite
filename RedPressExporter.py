@@ -5,6 +5,7 @@ import RedDot as red
 import RedRequestObj as RRob
 import RD2WXR_Definitions as wxr
 import RedSession
+import RedAdmin
 import datetime, time, re
 import pprint
 
@@ -16,7 +17,10 @@ class RedPress(object):
     assetpath = '/'
 
     def __init__(self):
-        pass
+        new_path = "Enter new path for exported assets? (y/n)"
+        if new_path.upper() == 'Y':
+            new_path_in = raw_input("New path with beginning and ending slashes: ")
+            self.setassetpath(new_path_in)
 
     def call_export_func(self, rro, tup):
         """
@@ -80,20 +84,39 @@ class RedPress(object):
         for p in ps:
             if type(p).__name__ == 'str':
                 self.exportfoundation(p)
-            elif type(p).__name__ == 'tuple':
+            elif type(p).__name__ == 'tuple':#todo - unused
                 self.exportsubfoundation(p[0], p[1], p[2]) 
             else:
                 print('unexpected page input: ' + p)
         self.f.write(wxr.footer)
         self.f.close()
 
-    def exportsite(self, root):
+    def exportsite(self):
         """
-        Takes tuple describing root page of site
+        Takes input from user describing root page of site
             (reddot_guid, wordpress_id, wordpress_title)
         *Root page must have already been imported to Wordpress
         """
-        pass
+        print("Root page must already be imported to Wordpress")
+        rootguid = raw_input("Enter guid of root page: ")
+        wpid = raw_input("Enter Wordpress id of root page: ")
+        wptitle = raw_input("Enter exact title of root page in Wordpress: ")
+        
+        self.f = open('RedPressWXRExport'+str(time.time())+'.xml','w')
+        self.f.write(wxr.header)
+        self.f.write("""
+	<item>
+		<title>"""+wptitle+"""</title>
+		<wp:post_id>"""+wpid+"""</wp:post_id>
+		<wp:post_type>page</wp:post_type>
+	</item>""")
+        
+        childs = RedAdmin.allfollowing(rootguid)
+        for c in childs:
+            self.exportsubfoundation(c, wpid)
+            
+        self.f.write(wxr.footer)
+        self.f.close()
         
     def exportfoundation(self, guid):
         o = RRob.RedRequestPage(guid)
@@ -115,12 +138,32 @@ class RedPress(object):
                 raise Exception("Incorrect type in ast at " + t)
        
 
-    def exportsubfoundation(self, guid, parent_id, parent_title):
+    def exportsubfoundation(self, guid, parent_id):
         """
         Exporting a subpage requires the parent page is already imported.
-        Must supply exact id and title of page in wordpress.
+        Must supply exact id of page in wordpress.
         """
-        ast = wxr.parse(wxr.wpds['Generic Foundation']['html'])
+        o = RRob.RedRequestPage(guid)
+        o.request()
+        #verify is foundation page
+        if o.fetch('.//PAGE[@templatetitle]', 'templatetitle', 1)[0] not in red.RD_Foundation_Pages:
+            print('Warning: '+guid+' is not a foundation page. Nothing exported.')
+            return
+        
+        ast = wxr.parse(wxr.wpds['Generic Sub Foundation']['html'])
+        for t in ast:
+            typ = type(t).__name__
+            if typ == 'str':
+                self.f.write(t)
+                #print(t)
+            elif typ == 'tuple':
+                if t == ('placeholder', 'wp_parentid'):
+                    self.f.write(parent_id)
+                    #print(parent_id)
+                else:
+                    self.call_export_func(o, t)
+            else:
+                raise Exception("Incorrect type in ast at " + t)
 
 
     def exportpage(self, guid, wxr_def=None):
@@ -349,9 +392,9 @@ class RedPress(object):
         """
         t = RRob.RedRequestText(guid)
         text = t.request(True)
-        ioIDs = re.findall('\[ioID\][A-F0-9]{32}', text)
+        ioIDs = re.findall('\[ioID\][A-F0-9]{32}/?', text)
         for ioID in ioIDs:
-            ioguid = ioID.replace('[ioID]', '')
+            ioguid = ioID.replace('[ioID]', '').replace('/','')
             f = RRob.RedRequestFolder(ioguid)
             fres = f.request(True)
             if(f.err()):
@@ -359,7 +402,7 @@ class RedPress(object):
                 text = text.replace(ioID, self.getlinktopage(ioguid))
             else:
                 #self.f.write(self.getassetpath(ioguid))
-                text = text.replace(self.getassetpath(ioguid))
+                text = text.replace(ioID, self.getassetpath(ioguid))
         self.f.write(text)
         
 
