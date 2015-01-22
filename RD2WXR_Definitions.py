@@ -194,12 +194,12 @@ wpds = {
                     <%IoRangeConditional%><h5><%stf_degree2/%></h5><%/IoRangeConditional%>
                     <%IoRangeConditional%><h5><%stf_degree3/%></h5><%/IoRangeConditional%>
                     <%IoRangeConditional%><h5><%stf_degree4/%></h5><%/IoRangeConditional%>
-                    <%IoRangeConditional%><h5><%stf_degree5/%></h5><%/IoRangeConditional%>"""
+                    <%IoRangeConditional%><h5><%stf_degree5/%></h5><%/IoRangeConditional%>"""+
                     #<%IoRangeConditionalAnchor%><%anc_website%>Bio Box (Large) - wxr item - website link<%/anc_website%><%/IoRangeConditionalAnchor%>
                     """<%IoRangeConditional%><h5 class="highlight-blue">Office: <%stf_officeNumber/%></h5><%/IoRangeConditional%>
                     <%IoRangeConditional%><h5 class="highlight-blue">Phone: <%stf_phoneNumber/%></h5><%/IoRangeConditional%>
                 </div>
-                <%IoRangeConditional%><p><%txt_text/%></p><%/IoRangeConditional%>
+                <%IoRangeConditional%><%txt_text/%><%/IoRangeConditional%>
             </div>"""
     },
     
@@ -225,14 +225,14 @@ wpds = {
                     <%IoRangeConditional%><h5><%stf_degree2/%></h5><%/IoRangeConditional%>
                     <%IoRangeConditional%><h5><%stf_degree3/%></h5><%/IoRangeConditional%>
                     <%IoRangeConditional%><h5><%stf_degree4/%></h5><%/IoRangeConditional%>
-                    <%IoRangeConditional%><h5><%stf_degree5/%></h5><%/IoRangeConditional%>"""
+                    <%IoRangeConditional%><h5><%stf_degree5/%></h5><%/IoRangeConditional%>"""+
                     #<%IoRangeConditionalAnchor%><%anc_website%>Bio Box (Small) - wxr item - website link<%/anc_website%><%/IoRangeConditionalAnchor%>
                     """<h4 class="highlight-blue">
                         <%IoRangeConditional%>Office: <%stf_officeNumber%><%/IoRangeConditional%>
                         <%IoRangeConditional%>Phone: <%stf_phoneNumber%><%/IoRangeConditional%>
                     </h4>
                 </div>                            
-                <%IoRangeConditional%><p><%txt_text%></p><%/IoRangeConditional%>
+                <%IoRangeConditional%><%txt_text%><%/IoRangeConditional%>
             </div>"""
     },
     
@@ -292,7 +292,7 @@ wpds = {
     {
         'html':"""
             <h3><%headline/%></h3>
-            <%IoRangeConditional%><p><%txt_faqDescription/%></p><%/IoRangeConditional%>
+            <%IoRangeConditional%><div><%txt_faqDescription/%></div><%/IoRangeConditional%>
             <%IoRangeListContent%>list_faqs<%/IoRangeListContent%>"""
     },
     
@@ -351,13 +351,13 @@ wpds = {
         <h4><%headline/%></h4>
         <%IoRangeConditional%><div class="map_desc"><%txt_text/%></div><%/IoRangeConditional%>
         <div class="mapbox">
-            <iframe width="625" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="<%IoRangeListLink%><%anc_googleMapIframeSourceLink%>anc_googleMapIframeSourceLink<%/anc_googleMapIframeSourceLink%><%/IoRangeListLink%>"></iframe>
+            <iframe width="625" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/place/Ozarks+Technical+Community+College/@37.2144019,-93.2825409,15z/data=!4m2!3m1!1s0x0000000000000000:0x76db2ff4de702b77"></iframe>
         </div>"""
     },
     
     'anc_googleMapIframeSourceLink':
-    {#hack for exportring list link with no export definition
-        'html':"""<%anc_googleMapIframeSourceLink/%>"""
+    {#Content class uses assigned urls, which are unrecoverable. Just give all maps OTC map for now
+        'html':"""https://www.google.com/maps/place/Ozarks+Technical+Community+College/@37.2144019,-93.2825409,15z/data=!4m2!3m1!1s0x0000000000000000:0x76db2ff4de702b77"""
     },
     
     'flat text':
