@@ -1,5 +1,6 @@
 import RedDot as red
 import RedRequestObj as RRob
+import RedPressExporter as rp
 import RedSession
 import xml.etree.ElementTree as ET
 

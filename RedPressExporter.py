@@ -15,12 +15,19 @@ class RedPress(object):
 
     f = None
     assetpath = '/'
+    wp_subsite_path = None#to be set in cases of mass exporting
 
     def __init__(self):
         new_path = "Enter new path for exported assets? (y/n)"
         if new_path.upper() == 'Y':
             new_path_in = raw_input("New path with beginning and ending slashes: ")
             self.setassetpath(new_path_in)
+            
+    def setsubsitepath(self, path):
+        self.wp_subsite_path = path
+        
+    def getsubsitepath(self):
+        return self.wp_subsite_path
 
     def call_export_func(self, rro, tup):
         """
@@ -31,6 +38,7 @@ class RedPress(object):
         fun = tup[0]
         val = tup[1]
         if fun == 'placeholder':
+            print('placeholder: '+val)
             if val == 'wp_filename':
                 self.f.write(wxr.wp_fileurl(rro.fetch('.//PAGE[@headline]', 'headline')[0]))
             else:
@@ -39,6 +47,7 @@ class RedPress(object):
                 try:
                     pval = rro.fetch('.//PAGE[@'+ val+']', val)[0]
                     self.f.write(pval)
+                    print(pval)
                     return
                 except Exception as ex:
                     pass#placeholder is not in PAGE tag
@@ -63,7 +72,10 @@ class RedPress(object):
             placeholder = ast[1][1]
             pval = rro.fetch(".//ELEMENT[@name='"+placeholder+"']", 'value')[0]
             if pval:
-                self.f.write(ast[0]+pval+ast[2])
+                pguid = rro.fetch(".//ELEMENT[@name='"+placeholder+"']", 'guid')[0]
+                self.f.write(ast[0])
+                self.exportelement(pguid)
+                self.f.write(ast[2])
         else:
             raise Exception("No function defined for placeholder " + fun)
 
@@ -102,6 +114,7 @@ class RedPress(object):
         wpid = raw_input("Enter Wordpress id of root page: ")
         wptitle = raw_input("Enter exact title of root page in Wordpress: ")
         
+        self.setsubsitepath(wptitle)
         self.f = open('RedPressWXRExport'+str(time.time())+'.xml','w')
         self.f.write(wxr.header)
         self.f.write("""
@@ -346,6 +359,10 @@ class RedPress(object):
         typ = o.fetch('.//ELT', 'elttype')[0]
         val = o.fetch('.//ELT', 'value')[0]
 
+        print('element: '+guid)
+        print('element type: '+typ)
+        print('element value: '+val)
+
         if len(val) == 0:
             return #todo - is this safe for all element types?
 
@@ -439,8 +456,10 @@ class RedPress(object):
         p = RRob.RedRequestPage(guid)
         p.request()
         path = p.fetch(".//PROJECTVARIANT[@name='HTML']//EXPORTFOLDER[@foldername='Published pages']", 'folderpath')[0]
+        if self.getsubsitepath() is not None:
+            path = self.getsubsitepath()
         fname = wxr.wp_fileurl(p.fetch(".//PAGE[@headline]", 'headline')[0])
-        return path+'/'+fname
+        return '/' + path+'/'+fname
 
 
 rp = RedPress()
