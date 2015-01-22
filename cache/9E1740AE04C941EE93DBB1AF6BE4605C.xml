@@ -1,0 +1,133 @@
+<IODATA><IODATA><PAGE action="load" option="extendedinfo" sessionkey="06DAD0A6185A4E95A691245E43517380" dialoglanguageid="ENG" languagevariantid="ENU" guid="9E1740AE04C941EE93DBB1AF6BE4605C" id="35480" templateguid="A3CEBAE00E2143E19DF0471B0FD7A204" templaterights="2147483647" mainlinkguid="8CD586A0F24A46E3960DE97291E13F68" editlinkguid="8CD586A0F24A46E3960DE97291E13F68" parentguid="8CD586A0F24A46E3960DE97291E13F68" headline="Versatile Large Format Printing" name="" sitemapname="" templatepath="Body Content" templatetitle="Text - H3 (Main) Heading and Paragraph (with images)" templateflags="536870912" headlinedescription="Headline" status="1" flags="533504" breadcrumbstartpoint="0" breadcrumbdonotuse="0" releaseguid="" createdate="41890.6770949074" createuserguid="AE1C1CF32B854C9FA30488508F0C3E15" createusername="broughtb" changedate="41890.6796759259" changeuserguid="AE1C1CF32B854C9FA30488508F0C3E15" changeusername="broughtb" releasedate="41890.6839351852" releaseusername="broughtb" releaseuserguid="AE1C1CF32B854C9FA30488508F0C3E15" lastchangesincelocked="41989.627037037" checkindate="41890.6839351852" drafttemplates="0" templateswaitforrelease="0" templatelockuserguid="" templatelockdate="" templatelockusername="" templatelock="0" lockuserguid="" lockusername="" lockdate="" previousreleasedversionexists="1" useconnection="1" projectguid="BA7BE4869A4F4A4CA8975545B3B247FD" userguid="E94BD09105A64CDDB94A0BA097958424" btflags="0"><ELEMENTS type="obligatory"></ELEMENTS><AUTHORIZATION  standardpagerightsassigned="0" standardpagerightname="a_printshop" detailpagerightsassigned="0" detailpagerightname=""/><LANGUAGEVARIANTS>
+<LANGUAGEVARIANT guid="84F167A612EA4CA59C3A372A65EF6001" name="English" language="ENU" codetable="" charsetlabel="Server (Server)">
+<WORKFLOW guid="" name="" statustext="Released" lastreleasedby="broughtb" lastreleasedat="41890.6839351852"/><RELEASEUSERS><USER guid="AE1C1CF32B854C9FA30488508F0C3E15" name="broughtb" date="41890.6839351852"/></RELEASEUSERS><EXPORTSETTINGS>
+<PROJECTVARIANTS>
+<PROJECTVARIANT guid="CC4E14C919B748DE99CEF46DDFA6DB19" name="HTML" exportname="OTC www-new">
+<EXPORTFOLDERS>
+<EXPORTFOLDER folderguid="00000000000000000000000000000100" foldername="Published pages" folderpath="printshop"/>
+<EXPORTFOLDER folderguid="0B8187A061274EC6956EF88D3FFFC434" foldername="SWF" folderpath="swf"/>
+<EXPORTFOLDER folderguid="10357BB5CDB347ABB4C27FF3654898CE" foldername="Media" folderpath=""/>
+<EXPORTFOLDER folderguid="549A9BB1D6D344AEB59FF51A7978190B" foldername="Videos" folderpath="videos"/>
+<EXPORTFOLDER folderguid="780D98FC1B84499BBDC54D3D9EE233CB" foldername="Development2" folderpath=""/>
+<EXPORTFOLDER folderguid="7CDFAE9D31DA4318A85CCAD4EFC09492" foldername="Structural Images" folderpath="structuralimages"/>
+<EXPORTFOLDER folderguid="9FF279CE70CD4D15AE981BAC85735E34" foldername="Bio Images" folderpath="images"/>
+<EXPORTFOLDER folderguid="FE46C4F25F4847F4A973C6F41EDC42A3" foldername="Content Images" folderpath="images"/>
+</EXPORTFOLDERS>
+</PROJECTVARIANT>
+<PROJECTVARIANT guid="48FC864D44434587ACFF4867545AA566" name="HTML (Draft)" exportname="OTC www-new">
+<EXPORTFOLDERS>
+<EXPORTFOLDER folderguid="00000000000000000000000000000100" foldername="Published pages" folderpath=""/>
+<EXPORTFOLDER folderguid="0B8187A061274EC6956EF88D3FFFC434" foldername="SWF" folderpath=""/>
+<EXPORTFOLDER folderguid="10357BB5CDB347ABB4C27FF3654898CE" foldername="Media" folderpath=""/>
+<EXPORTFOLDER folderguid="549A9BB1D6D344AEB59FF51A7978190B" foldername="Videos" folderpath="videos"/>
+<EXPORTFOLDER folderguid="780D98FC1B84499BBDC54D3D9EE233CB" foldername="Development2" folderpath=""/>
+<EXPORTFOLDER folderguid="7CDFAE9D31DA4318A85CCAD4EFC09492" foldername="Structural Images" folderpath=""/>
+<EXPORTFOLDER folderguid="9FF279CE70CD4D15AE981BAC85735E34" foldername="Bio Images" folderpath=""/>
+<EXPORTFOLDER folderguid="FE46C4F25F4847F4A973C6F41EDC42A3" foldername="Content Images" folderpath=""/>
+</EXPORTFOLDERS>
+</PROJECTVARIANT>
+<PROJECTVARIANT guid="A4AB61A8925D4FBB875676094FB236D7" name="Mobile" exportname="Mobile">
+<EXPORTFOLDERS>
+<EXPORTFOLDER folderguid="00000000000000000000000000000100" foldername="Published pages" folderpath="printshop"/>
+<EXPORTFOLDER folderguid="0B8187A061274EC6956EF88D3FFFC434" foldername="SWF" folderpath="swf"/>
+<EXPORTFOLDER folderguid="10357BB5CDB347ABB4C27FF3654898CE" foldername="Media" folderpath=""/>
+<EXPORTFOLDER folderguid="549A9BB1D6D344AEB59FF51A7978190B" foldername="Videos" folderpath="videos"/>
+<EXPORTFOLDER folderguid="780D98FC1B84499BBDC54D3D9EE233CB" foldername="Development2" folderpath=""/>
+<EXPORTFOLDER folderguid="7CDFAE9D31DA4318A85CCAD4EFC09492" foldername="Structural Images" folderpath="structuralimages"/>
+<EXPORTFOLDER folderguid="9FF279CE70CD4D15AE981BAC85735E34" foldername="Bio Images" folderpath="images"/>
+<EXPORTFOLDER folderguid="FE46C4F25F4847F4A973C6F41EDC42A3" foldername="Content Images" folderpath="images"/>
+</EXPORTFOLDERS>
+</PROJECTVARIANT>
+<PROJECTVARIANT guid="C3F63AD85FF24F23B923D97903033C4A" name="Mobile (Draft)" exportname="OTC www-new">
+<EXPORTFOLDERS>
+<EXPORTFOLDER folderguid="00000000000000000000000000000100" foldername="Published pages" folderpath=""/>
+<EXPORTFOLDER folderguid="0B8187A061274EC6956EF88D3FFFC434" foldername="SWF" folderpath=""/>
+<EXPORTFOLDER folderguid="10357BB5CDB347ABB4C27FF3654898CE" foldername="Media" folderpath=""/>
+<EXPORTFOLDER folderguid="549A9BB1D6D344AEB59FF51A7978190B" foldername="Videos" folderpath="videos"/>
+<EXPORTFOLDER folderguid="780D98FC1B84499BBDC54D3D9EE233CB" foldername="Development2" folderpath=""/>
+<EXPORTFOLDER folderguid="7CDFAE9D31DA4318A85CCAD4EFC09492" foldername="Structural Images" folderpath=""/>
+<EXPORTFOLDER folderguid="9FF279CE70CD4D15AE981BAC85735E34" foldername="Bio Images" folderpath=""/>
+<EXPORTFOLDER folderguid="FE46C4F25F4847F4A973C6F41EDC42A3" foldername="Content Images" folderpath=""/>
+</EXPORTFOLDERS>
+</PROJECTVARIANT>
+<PROJECTVARIANT guid="5F2437722AA446939A891B5EC40AA68E" name="Mobile_Testing" exportname="Mobile Staging">
+<EXPORTFOLDERS>
+<EXPORTFOLDER folderguid="00000000000000000000000000000100" foldername="Published pages" folderpath="printshop"/>
+<EXPORTFOLDER folderguid="0B8187A061274EC6956EF88D3FFFC434" foldername="SWF" folderpath="swf"/>
+<EXPORTFOLDER folderguid="10357BB5CDB347ABB4C27FF3654898CE" foldername="Media" folderpath=""/>
+<EXPORTFOLDER folderguid="549A9BB1D6D344AEB59FF51A7978190B" foldername="Videos" folderpath="videos"/>
+<EXPORTFOLDER folderguid="780D98FC1B84499BBDC54D3D9EE233CB" foldername="Development2" folderpath=""/>
+<EXPORTFOLDER folderguid="7CDFAE9D31DA4318A85CCAD4EFC09492" foldername="Structural Images" folderpath="structuralimages"/>
+<EXPORTFOLDER folderguid="9FF279CE70CD4D15AE981BAC85735E34" foldername="Bio Images" folderpath="images"/>
+<EXPORTFOLDER folderguid="FE46C4F25F4847F4A973C6F41EDC42A3" foldername="Content Images" folderpath="images"/>
+</EXPORTFOLDERS>
+</PROJECTVARIANT>
+<PROJECTVARIANT guid="3B53D9DD50774F1A91ACBB45FA6AF897" name="Mobile_Testing (Draft)" exportname="Mobile Staging">
+<EXPORTFOLDERS>
+<EXPORTFOLDER folderguid="00000000000000000000000000000100" foldername="Published pages" folderpath=""/>
+<EXPORTFOLDER folderguid="0B8187A061274EC6956EF88D3FFFC434" foldername="SWF" folderpath=""/>
+<EXPORTFOLDER folderguid="10357BB5CDB347ABB4C27FF3654898CE" foldername="Media" folderpath=""/>
+<EXPORTFOLDER folderguid="549A9BB1D6D344AEB59FF51A7978190B" foldername="Videos" folderpath="videos"/>
+<EXPORTFOLDER folderguid="780D98FC1B84499BBDC54D3D9EE233CB" foldername="Development2" folderpath=""/>
+<EXPORTFOLDER folderguid="7CDFAE9D31DA4318A85CCAD4EFC09492" foldername="Structural Images" folderpath=""/>
+<EXPORTFOLDER folderguid="9FF279CE70CD4D15AE981BAC85735E34" foldername="Bio Images" folderpath=""/>
+<EXPORTFOLDER folderguid="FE46C4F25F4847F4A973C6F41EDC42A3" foldername="Content Images" folderpath=""/>
+</EXPORTFOLDERS>
+</PROJECTVARIANT>
+<PROJECTVARIANT guid="6CEEAD7257A64DC59784EB8311A604F2" name="PDF" exportname="OTC www-new">
+<EXPORTFOLDERS>
+<EXPORTFOLDER folderguid="00000000000000000000000000000100" foldername="Published pages" folderpath=""/>
+<EXPORTFOLDER folderguid="0B8187A061274EC6956EF88D3FFFC434" foldername="SWF" folderpath=""/>
+<EXPORTFOLDER folderguid="10357BB5CDB347ABB4C27FF3654898CE" foldername="Media" folderpath=""/>
+<EXPORTFOLDER folderguid="549A9BB1D6D344AEB59FF51A7978190B" foldername="Videos" folderpath="videos"/>
+<EXPORTFOLDER folderguid="780D98FC1B84499BBDC54D3D9EE233CB" foldername="Development2" folderpath=""/>
+<EXPORTFOLDER folderguid="7CDFAE9D31DA4318A85CCAD4EFC09492" foldername="Structural Images" folderpath=""/>
+<EXPORTFOLDER folderguid="9FF279CE70CD4D15AE981BAC85735E34" foldername="Bio Images" folderpath=""/>
+<EXPORTFOLDER folderguid="FE46C4F25F4847F4A973C6F41EDC42A3" foldername="Content Images" folderpath=""/>
+</EXPORTFOLDERS>
+</PROJECTVARIANT>
+<PROJECTVARIANT guid="C21B748CEE4B4C4EB915A12E610C6B7F" name="PDF (Draft)" exportname="OTC www-new">
+<EXPORTFOLDERS>
+<EXPORTFOLDER folderguid="00000000000000000000000000000100" foldername="Published pages" folderpath=""/>
+<EXPORTFOLDER folderguid="0B8187A061274EC6956EF88D3FFFC434" foldername="SWF" folderpath=""/>
+<EXPORTFOLDER folderguid="10357BB5CDB347ABB4C27FF3654898CE" foldername="Media" folderpath=""/>
+<EXPORTFOLDER folderguid="549A9BB1D6D344AEB59FF51A7978190B" foldername="Videos" folderpath="videos"/>
+<EXPORTFOLDER folderguid="780D98FC1B84499BBDC54D3D9EE233CB" foldername="Development2" folderpath=""/>
+<EXPORTFOLDER folderguid="7CDFAE9D31DA4318A85CCAD4EFC09492" foldername="Structural Images" folderpath=""/>
+<EXPORTFOLDER folderguid="9FF279CE70CD4D15AE981BAC85735E34" foldername="Bio Images" folderpath=""/>
+<EXPORTFOLDER folderguid="FE46C4F25F4847F4A973C6F41EDC42A3" foldername="Content Images" folderpath=""/>
+</EXPORTFOLDERS>
+</PROJECTVARIANT>
+<PROJECTVARIANT guid="9A4564E65BD1463CB1BE69876AA60B56" name="testing" exportname="OTC webdev">
+<EXPORTFOLDERS>
+<EXPORTFOLDER folderguid="00000000000000000000000000000100" foldername="Published pages" folderpath="printshop"/>
+<EXPORTFOLDER folderguid="0B8187A061274EC6956EF88D3FFFC434" foldername="SWF" folderpath="swf"/>
+<EXPORTFOLDER folderguid="10357BB5CDB347ABB4C27FF3654898CE" foldername="Media" folderpath=""/>
+<EXPORTFOLDER folderguid="549A9BB1D6D344AEB59FF51A7978190B" foldername="Videos" folderpath="videos"/>
+<EXPORTFOLDER folderguid="780D98FC1B84499BBDC54D3D9EE233CB" foldername="Development2" folderpath=""/>
+<EXPORTFOLDER folderguid="7CDFAE9D31DA4318A85CCAD4EFC09492" foldername="Structural Images" folderpath="structuralimages"/>
+<EXPORTFOLDER folderguid="9FF279CE70CD4D15AE981BAC85735E34" foldername="Bio Images" folderpath="images"/>
+<EXPORTFOLDER folderguid="FE46C4F25F4847F4A973C6F41EDC42A3" foldername="Content Images" folderpath="images"/>
+</EXPORTFOLDERS>
+</PROJECTVARIANT>
+<PROJECTVARIANT guid="0B5A066B993048EBB8C0DA0216D31854" name="testing (Draft)" exportname="OTC www1 Nov 12">
+<EXPORTFOLDERS>
+<EXPORTFOLDER folderguid="00000000000000000000000000000100" foldername="Published pages" folderpath=""/>
+<EXPORTFOLDER folderguid="0B8187A061274EC6956EF88D3FFFC434" foldername="SWF" folderpath=""/>
+<EXPORTFOLDER folderguid="10357BB5CDB347ABB4C27FF3654898CE" foldername="Media" folderpath=""/>
+<EXPORTFOLDER folderguid="549A9BB1D6D344AEB59FF51A7978190B" foldername="Videos" folderpath="videos"/>
+<EXPORTFOLDER folderguid="780D98FC1B84499BBDC54D3D9EE233CB" foldername="Development2" folderpath=""/>
+<EXPORTFOLDER folderguid="7CDFAE9D31DA4318A85CCAD4EFC09492" foldername="Structural Images" folderpath=""/>
+<EXPORTFOLDER folderguid="9FF279CE70CD4D15AE981BAC85735E34" foldername="Bio Images" folderpath=""/>
+<EXPORTFOLDER folderguid="FE46C4F25F4847F4A973C6F41EDC42A3" foldername="Content Images" folderpath=""/>
+</EXPORTFOLDERS>
+</PROJECTVARIANT>
+</PROJECTVARIANTS>
+</EXPORTSETTINGS>
+</LANGUAGEVARIANT>
+</LANGUAGEVARIANTS>
+
+<LINKSFROM languagevariantid="ENU" guid="9E1740AE04C941EE93DBB1AF6BE4605C" stopsitemapsearch="0" deleteexpiredpage="0"><LINK languagevariantid="ENU" relationguid="C7DFE8372F9947879B47A102956B773F" datebegin="0" dateend="0" datestate="1" release="0" issitemaplink="0" isreference="0" connectedbykeyword="0" value="con_body" pageheadline="Large Format Printing" ok="1" guid="8CD586A0F24A46E3960DE97291E13F68" templateelementguid="B7140D2222444B75A4F50ED456668806" pageguid="36AC99F750224523A9F3709A05EF5D92" eltflags="0" flags="0" eltrequired="0" eltdragdrop="0" islink="2" formularorderid="0" orderid="1" status="0" name="con_body" eltname="con_body" aliasname="con_body" variable="con_body" istargetcontainer="0" type="28" elttype="28" templateelementflags="0" templateelementislink="2" reddotdescription="" workflowname="" ismainlink="1"/></LINKSFROM><MAINLINK guid="8CD586A0F24A46E3960DE97291E13F68" name="con_body" pageguid="36AC99F750224523A9F3709A05EF5D92" pageheadline="Large Format Printing"/><PROJECTVARIANTS><PROJECTVARIANT guid="CC4E14C919B748DE99CEF46DDFA6DB19" name="HTML" checked="-1"><TEMPLATEVARIANTS><TEMPLATEVARIANT guid="1DAD557070B14654BDA136C4A2DA69AA" name="HTML" generatorstatustext="Will be published"/></TEMPLATEVARIANTS></PROJECTVARIANT><PROJECTVARIANT guid="A4AB61A8925D4FBB875676094FB236D7" name="Mobile" checked="0"><TEMPLATEVARIANTS><TEMPLATEVARIANT guid="25FB4970B57A4D1B8CFBA943BA051AC6" name="mobile" generatorstatustext="Will be published"/></TEMPLATEVARIANTS></PROJECTVARIANT><PROJECTVARIANT guid="5F2437722AA446939A891B5EC40AA68E" name="Mobile_Testing" checked="0"><TEMPLATEVARIANTS><TEMPLATEVARIANT guid="25FB4970B57A4D1B8CFBA943BA051AC6" name="mobile" generatorstatustext="Will be published"/></TEMPLATEVARIANTS></PROJECTVARIANT><PROJECTVARIANT guid="6CEEAD7257A64DC59784EB8311A604F2" name="PDF" checked="0"><TEMPLATEVARIANTS><TEMPLATEVARIANT guid="1DAD557070B14654BDA136C4A2DA69AA" name="HTML" generatorstatustext="Will be published"/></TEMPLATEVARIANTS></PROJECTVARIANT><PROJECTVARIANT guid="9A4564E65BD1463CB1BE69876AA60B56" name="testing" checked="0"><TEMPLATEVARIANTS><TEMPLATEVARIANT guid="1DAD557070B14654BDA136C4A2DA69AA" name="HTML" generatorstatustext="Will be published"/></TEMPLATEVARIANTS></PROJECTVARIANT></PROJECTVARIANTS></PAGE>
+</IODATA><IODATA><PAGE guid="9E1740AE04C941EE93DBB1AF6BE4605C" sessionkey="06DAD0A6185A4E95A691245E43517380" dialoglanguageid="ENG" languagevariantid="ENU"><ELEMENTS action="load" pageguid="9E1740AE04C941EE93DBB1AF6BE4605C" parenttable="PAG" guid="9E1740AE04C941EE93DBB1AF6BE4605C"><ELEMENT languagevariantid="ENU" defaultlanguagevariantid="" languageindependent="0" editoroptions="577027100" guid="5EFFDB365D8943CA936D91E99A0A61B1" templateelementguid="94D23676F21443E6A9C66695DACE0399" pageguid="9E1740AE04C941EE93DBB1AF6BE4605C" eltflags="0" flags="64" eltrequired="0" formularorderid="0" orderid="1" islink="0" name="txt_text" eltname="txt_text" aliasname="txt_text" variable="txt_text" eltstylesheetdata="&lt;STYLE&gt; &lt;/STYLE&gt;" type="32" elttype="32" templateelementflags="64" templateelementislink="0" value=" The large format printer can be used to print on " reddotdescription="Text content for page"/></ELEMENTS><LINKS action="load" pageguid="9E1740AE04C941EE93DBB1AF6BE4605C" parenttable="PAG" guid="9E1740AE04C941EE93DBB1AF6BE4605C"/></PAGE>
+</IODATA>
+</IODATA>

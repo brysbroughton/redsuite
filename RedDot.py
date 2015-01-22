@@ -49,7 +49,7 @@ RD_Error_Messages = {
     'RDERROR15805': 'You have no right to delete this page.',
     'RDERROR16997': 'You cannot delete the content class. There are pages which were created on the basis of this content class in other projects.'
 }
-RD_Foundation_Pages = set([
+RD_Foundation_Pages = [
     #String names of all foundation page content classes - must be edited for 'all-following' feature to work
     '(Incorrect) Foundation - Online Orientation Video Feature Page',
     '(Unused) Foundation - Narrow Page (for Videos) (Unused)',
@@ -109,7 +109,7 @@ RD_Foundation_Pages = set([
     'Mobile Content Page',
     'Mobile Homepage',
     'Foundation - Form page'
-    ])
+    ]
 
 def parse_date(datestr):
     """

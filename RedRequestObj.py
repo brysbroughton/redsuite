@@ -91,6 +91,9 @@ class RedRequestObj(object):
                 except Exception as ex:
                     raise ex
 
+    def setnode(nodein):
+        self.node = nodein
+
     def setguid(self, guid_in):
         self.guid = guid_in
 
