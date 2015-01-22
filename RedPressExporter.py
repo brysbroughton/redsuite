@@ -114,7 +114,7 @@ class RedPress(object):
         wpid = raw_input("Enter Wordpress id of root page: ")
         wptitle = raw_input("Enter exact title of root page in Wordpress: ")
         
-        self.setsubsitepath(wptitle)
+        self.setsubsitepath(wxr.wp_fileurl(wptitle))
         self.f = open('RedPressWXRExport'+str(time.time())+'.xml','w')
         self.f.write(wxr.header)
         self.f.write("""
