@@ -1,0 +1,12 @@
+ 'communityday': 3,
+ 'creativeservices': 1,
+ 'eagle': 1,
+ 'holidaygreeting': 1,
+ 'joplinrelief': 6,
+ 'news': 370,
+ 'photos': 1,
+ 'profiles': 37,
+ 'rideshare': 2,
+ 'selfstudy': 52,
+ 'springplay': 1,
+ 'videofeatures': 1

@@ -5,13 +5,13 @@
 #denote RedDot Elements by placeholders e.g. <%headline/%>
 ##placeholders cannot have whitespace
 #
-##simple place holders have trailing slashe.g. <%headline/%>
+##simple place holders have trailing slash e.g. <%headline/%>
 #
 ##placeholders for containers and lists have opening and closing tags
 ##e.g. <%IoRangeConditional%><%stf_description/%><%/IoRangeConditional%>
 #
 ##Lists and containers must be nested e.g.
-##<%IoRangeListLink%><%lst_listitems%><li><%headline/%></li><%/lst_listitems%><%/IoRangeListLink%>
+##<%IoRangeListLink%><%lst_listitems%>Item Definition Name - wxr item</li><%/lst_listitems%><%/IoRangeListLink%>
 #
 ##Supported Containers: IoRangeConditional, IoRangeListLink, IoRangeListContent, IoRangeContainer
 #
@@ -133,6 +133,51 @@ wpds = {
 		</wp:postmeta>
             </item>
             """
+    },
+    
+    'Foundation - Single Article':
+    {
+        'html':"""NEEDS DEFINITION"""
+    },
+    
+    'Foundation - Single Press Release':
+    {
+        'html':"""NEEDS DEFINITION"""
+    },
+    
+    #'Foundation - Wide Image Page':
+    #{ #cancelled - can't set feature image, has to be manually done
+    #    'html':"""NEEDS DEFINITION"""#needs to set feature image
+    #},
+    
+    'Links - File Download List (One Column)':
+    {
+        'html':"""NEEDS DEFINITION"""
+    },
+    
+    'PR - Article Table':
+    {
+        'html':"""NEEDS DEFINITION"""
+    },
+    
+    'PR - Press Release Table':
+    {
+        'html':"""NEEDS DEFINITION"""
+    },
+    
+    'Text - H4 (Sub) Heading  and Paragraph':
+    {
+        'html':"""NEEDS DEFINITION"""
+    },
+    
+    'Videos - Vimeo Video Page':
+    {
+        'html':"""NEEDS DEFINITION"""
+    },
+    
+    'Navigation Connector':
+    {
+        'html':""""""#no output for these
     },
     
     'Text - H3 (Main) Heading and Paragraph':

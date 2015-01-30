@@ -124,7 +124,7 @@ class RedPress(object):
 		<wp:post_type>page</wp:post_type>
 	</item>""")
         
-        childs = RedAdmin.allfollowing(rootguid)
+        childs = RedAdmin.subsite(rootguid)
         for c in childs:
             self.exportsubfoundation(c, wpid)
             
