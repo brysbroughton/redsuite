@@ -23,6 +23,12 @@ class RedPress(object):
             new_path_in = raw_input("New path with beginning and ending slashes: ")
             self.setassetpath(new_path_in)
             
+    def startwrite(self):
+        self.f = open('RedPressWXRExport'+str(time.time())+'.xml','w')
+    
+    def stopwrite(self):
+        self.f.close()
+            
     def setsubsitepath(self, path):
         self.wp_subsite_path = path
         
@@ -41,6 +47,8 @@ class RedPress(object):
             print('placeholder: '+val)
             if val == 'wp_filename':
                 self.f.write(wxr.wp_fileurl(rro.fetch('.//PAGE[@headline]', 'headline')[0]))
+            elif val == 'createdate':
+                self.f.write(red.wp_date(rro.fetch('.//PAGE[@createdate]','createdate')[0]))
             else:
                 #case 0: placeholder is in PAGE tag
                 #   just print here
@@ -81,10 +89,8 @@ class RedPress(object):
 
     def export(self, ps):
         """
-        Accepts mixed list of page descriptions
-        Each description is one of the following:
-            1. String guid of foundation page (non-foundation pages will be ignored)
-            2. Tuple of strings ([guid_page], [wordpressID_parent], [wordpressTitle_parent]) - for child pages
+        Accepts list of guids of foundation pages. Gets template type of each page. Verifies foundation.
+        Determines export definition to apply, and calls exportpage accordingly.
         """
         if type(ps).__name__ != 'list':
             raise Exception('export accepts a mixed list. check docstring with dir.')
@@ -92,12 +98,25 @@ class RedPress(object):
         print("Starting export job")
         self.f = open('RedPressWXRExport'+str(time.time())+'.xml','w')
         self.f.write(wxr.header)
-        pprint.pprint(ps)
+
         for p in ps:
             if type(p).__name__ == 'str':
-                self.exportfoundation(p)
-            elif type(p).__name__ == 'tuple':#todo - unused
-                self.exportsubfoundation(p[0], p[1], p[2]) 
+                #todo stuff
+                po = RRob.RedRequestPage(p)
+                pores = po.request()#pores = page object response
+                template = ''
+                try:
+                    template = po.fetch('.//PAGE[@templatetitle]','templatetitle')[0]
+                except Exception as ex:
+                    print('EXCEPTION at '+p)
+                    raise
+                
+                if template not in red.RD_Foundation_Pages:
+                    raise Exception(p + ' must be a foundation page to export')
+                elif wxr.wpds.has_key(template):
+                    self.exportpage(p, template)
+                else:
+                    self.exportfoundation(p)
             else:
                 print('unexpected page input: ' + p)
         self.f.write(wxr.footer)
@@ -138,9 +157,14 @@ class RedPress(object):
         if o.fetch('.//PAGE[@templatetitle]', 'templatetitle', 1)[0] not in red.RD_Foundation_Pages:
             print('Warning: '+guid+' is not a foundation page. Nothing exported.')
             return
-
+        
+        #TODO - add attempt to gather foundation page definition matching template
+        #if definition no exist, use generic foundation
+        
         ast = wxr.parse(wxr.wpds['Generic Foundation']['html'])
         #pprint.pprint(ast)
+        
+        self.f = open('RedPressWXRExport'+str(time.time())+'.xml','w')
         for t in ast:
             typ = type(t).__name__
             if typ == 'str':
@@ -149,6 +173,7 @@ class RedPress(object):
                 self.call_export_func(o, t)
             else:
                 raise Exception("Incorrect type in ast at " + t)
+        self.f.close()
        
 
     def exportsubfoundation(self, guid, parent_id):
@@ -163,7 +188,9 @@ class RedPress(object):
             print('Warning: '+guid+' is not a foundation page. Nothing exported.')
             return
         
+        #TODO - add template defined check
         ast = wxr.parse(wxr.wpds['Generic Sub Foundation']['html'])
+        
         for t in ast:
             typ = type(t).__name__
             if typ == 'str':
@@ -181,7 +208,7 @@ class RedPress(object):
 
     def exportpage(self, guid, wxr_def=None):
         """
-        Generic page export for content pages
+        Generic page export for content pages or foundation pages
         """
         o = RRob.RedRequestPage(guid)
         o.request()
@@ -359,16 +386,18 @@ class RedPress(object):
         typ = o.fetch('.//ELT', 'elttype')[0]
         val = o.fetch('.//ELT', 'value')[0]
 
-        print('element: '+guid)
-        print('element type: '+typ)
-        print('element value: '+val)
-
-        if len(val) == 0:
-            return #todo - is this safe for all element types?
-
         #standard field
         if typ in set(['1','5','39','48','999','50','51','1000']):
-            self.f.write(val)
+            if len(val) == 0:
+                try:
+                    default_val = o.fetch('.//ELT','eltdefaultselectionguid')[0]
+                    self.f.write(default_val)
+                except Exception as ex:
+                    #No value
+                    return
+                    pass
+            else:
+                self.f.write(val)
         #text
         elif typ in set(['31','32']):
             self.exporttext(guid)

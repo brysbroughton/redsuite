@@ -132,6 +132,21 @@ def parse_date(datestr):
         print "Expected date string of format YYYY-MM-DD at: " + str(datestr)
         return ''
     
+def wp_date(ordinal):
+    """
+    Accepts float or string float representing RedDot ordinal Date.
+    Returns WordPress type date in GMT. ex:
+    2014-12-02 00:00:00
+    """
+    ordinal = float(ordinal)
+    rddate = int(ordinal)
+    rdtime = ordinal - rddate #the decimal portion represents the time of day
+    
+    import datetime
+    pyordinal = rddate + 693594 #The Red epoch is 693594 days before the python epoch
+    return_string = datetime.date.fromordinal(pyordinal).isoformat()#yyyy-mm-dd
+    return_string = return_string + ' 00:00:00'
+    return return_string
     
 def cache(guid, res):
     """

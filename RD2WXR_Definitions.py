@@ -137,12 +137,142 @@ wpds = {
     
     'Foundation - Single Article':
     {
-        'html':"""NEEDS DEFINITION"""
+        'html':"""
+	<item>
+		<title><%headline/%></title>
+                <link>http://philip.ozarkstech.org</link>
+		<pubDate></pubDate>
+		<dc:creator><![CDATA[brys]]></dc:creator>
+		<guid isPermaLink="false">http://philip.ozarkstech.org/</guid>
+		<description></description>
+		<content:encoded><![CDATA[
+                    <%IoRangeConditional%><div class="pr_imagewrapper"><img src="<%img_image/%>" /></div><%/IoRangeConditional%>
+                    <%txt_text/%>
+                    <%IoRangeContainer%>con_body<%/IoRangeContainer%>
+                    <div class="contributors_box">
+                        <div class="contributors_inner">
+                            <h3>Contributors</h3>
+                            <div class="contributor">
+                                <h4><%stf_mediaContactName1/%></h4>
+                                <h5 class="title"><%stf_mediaContactTitle1/%></h5>
+                                <p>Phone: <%stf_mediaContactPhone1/%></p>
+                                <p>Email: <%stf_mediaContactEmail1/%></p>
+                            </div>
+                            <div class="contributor">
+                                <h4><%stf_mediaContactName2/%></h4>
+                                <h5 class="title"><%stf_mediaContactTitle2/%></h5>
+                                <p>Phone: <%stf_mediaContactPhone2/%></p>
+                                <p>Email: <%stf_mediaContactEmail2/%></p>
+                            </div>
+                            <div class="contributor">
+                                <h4><%stf_mediaContactName3/%></h4>
+                                <h5 class="title"><%stf_mediaContactTitle3/%></h5>
+                                <%IoRangeConditional%><p>Phone: <%stf_mediaContactPhone3/%></p><%/IoRangeConditional%>
+                                <%IoRangeConditional%><p>Email: <%stf_mediaContactEmail3/%></p><%/IoRangeConditional%>
+                            </div>
+                            <div class="contributor">
+                                <h4><%stf_mediaContactName4/%></h4>
+                                <h5 class="title"><%stf_mediaContactTitle4/%></h5>
+                                <%IoRangeConditional%><p>Phone: <%stf_mediaContactPhone4/%></p><%/IoRangeConditional%>
+                                <%IoRangeConditional%><p>Email: <%stf_mediaContactEmail4/%></p><%/IoRangeConditional%>
+                            </div>
+                        </div>
+                    </div>
+                ]]></content:encoded>
+		<excerpt:encoded><![CDATA[<%stf_teaser/%>]]></excerpt:encoded>
+		<wp:post_id></wp:post_id>
+		<wp:post_date><%createdate/%></wp:post_date>
+		<wp:post_date_gmt><%createdate/%></wp:post_date_gmt>
+		<wp:comment_status>closed</wp:comment_status>
+		<wp:ping_status>closed</wp:ping_status>
+		<wp:post_name><%wp_filename/%></wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>post</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<category domain="category" nicename="News Releases"><![CDATA[news releases]]></category>
+		<wp:postmeta>
+			<wp:meta_key>_edit_last</wp:meta_key>
+			<wp:meta_value><![CDATA[2]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_thumbnail_id</wp:meta_key>
+			<wp:meta_value><![CDATA[7]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+        """
     },
     
     'Foundation - Single Press Release':
     {
-        'html':"""NEEDS DEFINITION"""
+        'html':"""
+	<item>
+		<title><%headline/%></title>
+                <link>http://philip.ozarkstech.org</link>
+		<pubDate></pubDate>
+		<dc:creator><![CDATA[brys]]></dc:creator>
+		<guid isPermaLink="false">http://philip.ozarkstech.org/</guid>
+		<description></description>
+		<content:encoded><![CDATA[
+                    <%IoRangeConditional%><div class="pr_imagewrapper"><img src="<%img_image/%>" /></div><%/IoRangeConditional%>
+                    <%txt_text/%>
+                    <%IoRangeContainer%>con_body<%/IoRangeContainer%>
+                    <div class="contributors_box">
+                        <div class="contributors_inner">
+                            <h3>Contributors</h3>
+                            <div class="contributor">
+                                <h4><%stf_mediaContactName1/%></h4>
+                                <h5 class="title"><%stf_mediaContactTitle1/%></h5>
+                                <p>Phone: <%stf_mediaContactPhone1/%></p>
+                                <p>Email: <%stf_mediaContactEmail1/%></p>
+                            </div>
+                            <div class="contributor">
+                                <h4><%stf_mediaContactName2/%></h4>
+                                <h5 class="title"><%stf_mediaContactTitle2/%></h5>
+                                <p>Phone: <%stf_mediaContactPhone2/%></p>
+                                <p>Email: <%stf_mediaContactEmail2/%></p>
+                            </div>
+                            <div class="contributor">
+                                <h4><%stf_mediaContactName3/%></h4>
+                                <h5 class="title"><%stf_mediaContactTitle3/%></h5>
+                                <%IoRangeConditional%><p>Phone: <%stf_mediaContactPhone3/%></p><%/IoRangeConditional%>
+                                <%IoRangeConditional%><p>Email: <%stf_mediaContactEmail3/%></p><%/IoRangeConditional%>
+                            </div>
+                            <div class="contributor">
+                                <h4><%stf_mediaContactName4/%></h4>
+                                <h5 class="title"><%stf_mediaContactTitle4/%></h5>
+                                <%IoRangeConditional%><p>Phone: <%stf_mediaContactPhone4/%></p><%/IoRangeConditional%>
+                                <%IoRangeConditional%><p>Email: <%stf_mediaContactEmail4/%></p><%/IoRangeConditional%>
+                            </div>
+                        </div>
+                    </div>
+                ]]></content:encoded>
+		<excerpt:encoded><![CDATA[<%stf_teaser/%>]]></excerpt:encoded>
+		<wp:post_id></wp:post_id>
+		<wp:post_date><%createdate/%></wp:post_date>
+		<wp:post_date_gmt><%createdate/%></wp:post_date_gmt>
+		<wp:comment_status>closed</wp:comment_status>
+		<wp:ping_status>closed</wp:ping_status>
+		<wp:post_name><%wp_filename/%></wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>post</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<category domain="category" nicename="Press Releases"><![CDATA[press releases]]></category>
+		<wp:postmeta>
+			<wp:meta_key>_edit_last</wp:meta_key>
+			<wp:meta_value><![CDATA[2]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_thumbnail_id</wp:meta_key>
+			<wp:meta_value><![CDATA[7]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+        """
     },
     
     #'Foundation - Wide Image Page':
