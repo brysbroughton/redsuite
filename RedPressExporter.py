@@ -95,6 +95,9 @@ class RedPress(object):
         if type(ps).__name__ != 'list':
             raise Exception('export accepts a mixed list. check docstring with dir.')
         
+        from datetime import datetime #debug - watching runtime
+        starttime = datetime.now()
+        
         print("Starting export job")
         self.f = open('RedPressWXRExport'+str(time.time())+'.xml','w')
         self.f.write(wxr.header)
@@ -121,6 +124,8 @@ class RedPress(object):
                 print('unexpected page input: ' + p)
         self.f.write(wxr.footer)
         self.f.close()
+        
+        print("Export completed in "+str(datetime.now()-starttime))
 
     def exportsite(self):
         """
@@ -216,7 +221,10 @@ class RedPress(object):
         if wxr_def is None:
             wxr_def = o.fetch('.//PAGE[@templatetitle]', 'templatetitle')[0]
         print('export page of type: '+wxr_def)#debug
-        ast = wxr.parse(wxr.wpds[wxr_def]['html'])
+        try:
+            ast = wxr.parse(wxr.wpds[wxr_def]['html'])
+        except KeyError:
+            raise Exception("No export definition for page with template "+wxr_def)
         #pprint.pprint(ast)
         for t in ast:
             typ = type(t).__name__

@@ -7,8 +7,8 @@ Namespace for handling install-specific details of RedDot API administration
 auth Brys B 2015-01-06
 """
 
-host = 'red.otc.edu:443'
-aspconnecturl = '/CMS/PlugIns/BrysPlug/BrysPlug.asp'
+host = 'my.reddot.host:443'#must communicate through port 443
+aspconnecturl = '/CMS/PlugIns/MyAspConnector.asp'
 cachepath = './cache/'
 RD_Error_Messages = {
     'PLEASE LOGIN': 'The user session has timed out or the Login GUID is no longer valid. Please login again.  Login.',
@@ -138,14 +138,31 @@ def wp_date(ordinal):
     Returns WordPress type date in GMT. ex:
     2014-12-02 00:00:00
     """
+    import datetime
+    
+    rdtime = '0'
+    try:
+        rdtime = ordinal.split('.')[1] #the decimal portion represents the time of day
+    except Exception as ex:
+        #no decimal means no time of day in ordinal
+        raise
+    #time
+    timesum = 0
+    magnitude = 0
+    for digit in rdtime:
+        timesum = timesum + int(digit) * 8640*10**magnitude # RedDot time conversion is undocumented. But, this heuristic works and is tested.
+        magnitude -= 1
+    timesum = int(round(timesum))
+    time_string = str(datetime.timedelta(seconds=timesum))
+
+    #date
     ordinal = float(ordinal)
     rddate = int(ordinal)
-    rdtime = ordinal - rddate #the decimal portion represents the time of day
-    
-    import datetime
     pyordinal = rddate + 693594 #The Red epoch is 693594 days before the python epoch
+    
+    #format string
     return_string = datetime.date.fromordinal(pyordinal).isoformat()#yyyy-mm-dd
-    return_string = return_string + ' 00:00:00'
+    return_string = return_string+' '+time_string
     return return_string
     
 def cache(guid, res):

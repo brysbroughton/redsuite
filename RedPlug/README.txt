@@ -1,0 +1,2 @@
+The asp file should be placed on the RedDot server. The link to this asp file is what should replace the value in the variable 'aspconnecturl' in RedDot.py.
+Note that passwords are posted in plain text to this connector at login, so the connection must be encrypted through https and you should create a separate login from your usual login to use the script.

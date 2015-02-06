@@ -48,12 +48,12 @@ header = """<?xml version="1.0" encoding="UTF-8" ?>
 	<wp:wxr_version>1.2</wp:wxr_version>
 	<wp:base_site_url>"""+wordpresshost+"""</wp:base_site_url>
 	<wp:base_blog_url>"""+wordpresshost+"""</wp:base_blog_url>
-	<wp:author><wp:author_id>2</wp:author_id>
-        <wp:author_login>brys</wp:author_login>
-        <wp:author_email>broughtb@otc.edu</wp:author_email>
-        <wp:author_display_name><![CDATA[Brys Broughton]]></wp:author_display_name>
-        <wp:author_first_name><![CDATA[Brys]]></wp:author_first_name><wp:author_last_name><![CDATA[Broughton]]></wp:author_last_name></wp:author>
 	<generator>RedSuite v2.0</generator>"""
+        #<wp:author><wp:author_id>2</wp:author_id>
+        #<wp:author_login>brys</wp:author_login>
+        #<wp:author_email>broughtb@otc.edu</wp:author_email>
+        #<wp:author_display_name><![CDATA[Brys Broughton]]></wp:author_display_name>
+        #<wp:author_first_name><![CDATA[Brys]]></wp:author_first_name><wp:author_last_name><![CDATA[Broughton]]></wp:author_last_name></wp:author>
 
 footer = """</channel>
 </rss>"""
@@ -63,19 +63,27 @@ wpds = {
     {
         'html':
             """
+            <wp:author>
+                <wp:author_login><%createusername/%></wp:author_login>
+                <wp:author_email><%createusername/%>@otc.edu</wp:author_email>
+                <wp:author_display_name><![CDATA[<%createusername/%>]]></wp:author_display_name>
+                <wp:author_first_name><![CDATA[First name not set]]></wp:author_first_name><wp:author_last_name><![CDATA[Last name not set]]></wp:author_last_name>
+            </wp:author>
             <item>
             <title><%headline/%></title>
             <link>"""+wordpresshost+"""<%wp_filename/%></link>
-            <pubDate></pubDate><dc:creator></dc:creator>
+            <pubDate></pubDate>
+            <dc:creator><![CDATA[<%createusername/%>]]></dc:creator>
             <guid isPermaLink="false">"""+wordpresshost+"""<%wp_filename/%>/</guid>
-            <description></description>
+            <description><%stf_metadescription/%></description>
             <content:encoded><![CDATA[
             <%IoRangeContainer%>con_body<%/IoRangeContainer%>
+            <!-- Imported from RedDot Page<%id/%> -->
             ]]></content:encoded>
-            <excerpt:encoded><![CDATA['<%headline/%>']]></excerpt:encoded>
+            <excerpt:encoded><![CDATA[<%stf_teaser/%>]]></excerpt:encoded>
 		<wp:post_id></wp:post_id>
-		<wp:post_date></wp:post_date>
-		<wp:post_date_gmt></wp:post_date_gmt>
+		<wp:post_date><%createdate/%></wp:post_date>
+		<wp:post_date_gmt><%createdate/%></wp:post_date_gmt>
 		<wp:comment_status>closed</wp:comment_status>
 		<wp:ping_status>closed</wp:ping_status>
 		<wp:post_name><%wp_filename/%></wp:post_name>
@@ -101,19 +109,27 @@ wpds = {
     {
         'html':
             """
+            <wp:author>
+                <wp:author_login><%createusername/%></wp:author_login>
+                <wp:author_email><%createusername/%>@otc.edu</wp:author_email>
+                <wp:author_display_name><![CDATA[<%createusername/%>]]></wp:author_display_name>
+                <wp:author_first_name><![CDATA[First name not set]]></wp:author_first_name><wp:author_last_name><![CDATA[Last name not set]]></wp:author_last_name>
+            </wp:author>
             <item>
             <title><%headline/%></title>
             <link>"""+wordpresshost+"""<%wp_filename/%></link>
-            <pubDate></pubDate><dc:creator></dc:creator>
+            <pubDate></pubDate>
+            <dc:creator><![CDATA[<%createusername/%>]]></dc:creator>
             <guid isPermaLink="false">"""+wordpresshost+"""<%wp_filename/%>/</guid>
-            <description></description>
+            <description><%stf_metadescription/%></description>
             <content:encoded><![CDATA[
             <%IoRangeContainer%>con_body<%/IoRangeContainer%>
+            <!-- Imported from RedDot Page<%id/%> -->
             ]]></content:encoded>
-            <excerpt:encoded><![CDATA['<%headline/%>']]></excerpt:encoded>
+            <excerpt:encoded><![CDATA[<%stf_teaser/%>]]></excerpt:encoded>
 		<wp:post_id></wp:post_id>
-		<wp:post_date></wp:post_date>
-		<wp:post_date_gmt></wp:post_date_gmt>
+		<wp:post_date><%createdate/%></wp:post_date>
+		<wp:post_date_gmt><%createdate/%></wp:post_date_gmt>
 		<wp:comment_status>closed</wp:comment_status>
 		<wp:ping_status>closed</wp:ping_status>
 		<wp:post_name><%wp_filename/%></wp:post_name>
@@ -138,13 +154,19 @@ wpds = {
     'Foundation - Single Article':
     {
         'html':"""
+        <wp:author>
+            <wp:author_login><%createusername/%></wp:author_login>
+            <wp:author_email><%createusername/%>@otc.edu</wp:author_email>
+            <wp:author_display_name><![CDATA[<%createusername/%>]]></wp:author_display_name>
+            <wp:author_first_name><![CDATA[First name not set]]></wp:author_first_name><wp:author_last_name><![CDATA[Last name not set]]></wp:author_last_name>
+        </wp:author>
 	<item>
 		<title><%headline/%></title>
                 <link>http://philip.ozarkstech.org</link>
 		<pubDate></pubDate>
-		<dc:creator><![CDATA[brys]]></dc:creator>
+		<dc:creator><![CDATA[<%createusername/%>]]></dc:creator>
 		<guid isPermaLink="false">http://philip.ozarkstech.org/</guid>
-		<description></description>
+		<description><%stf_metadescription/%></description>
 		<content:encoded><![CDATA[
                     <%IoRangeConditional%><div class="pr_imagewrapper"><img src="<%img_image/%>" /></div><%/IoRangeConditional%>
                     <%txt_text/%>
@@ -178,6 +200,7 @@ wpds = {
                             </div>
                         </div>
                     </div>
+                    <!-- Imported from RedDot Page<%id/%> -->
                 ]]></content:encoded>
 		<excerpt:encoded><![CDATA[<%stf_teaser/%>]]></excerpt:encoded>
 		<wp:post_id></wp:post_id>
@@ -208,13 +231,19 @@ wpds = {
     'Foundation - Single Press Release':
     {
         'html':"""
+        <wp:author>
+            <wp:author_login><%createusername/%></wp:author_login>
+            <wp:author_email><%createusername/%>@otc.edu</wp:author_email>
+            <wp:author_display_name><![CDATA[<%createusername/%>]]></wp:author_display_name>
+            <wp:author_first_name><![CDATA[First name not set]]></wp:author_first_name><wp:author_last_name><![CDATA[Last name not set]]></wp:author_last_name>
+        </wp:author>
 	<item>
 		<title><%headline/%></title>
                 <link>http://philip.ozarkstech.org</link>
 		<pubDate></pubDate>
-		<dc:creator><![CDATA[brys]]></dc:creator>
+		<dc:creator><![CDATA[<%createusername/%>]]></dc:creator>
 		<guid isPermaLink="false">http://philip.ozarkstech.org/</guid>
-		<description></description>
+		<description><%stf_metadescription/%></description>
 		<content:encoded><![CDATA[
                     <%IoRangeConditional%><div class="pr_imagewrapper"><img src="<%img_image/%>" /></div><%/IoRangeConditional%>
                     <%txt_text/%>
@@ -248,6 +277,7 @@ wpds = {
                             </div>
                         </div>
                     </div>
+                    <!-- Imported from RedDot Page<%id/%> -->
                 ]]></content:encoded>
 		<excerpt:encoded><![CDATA[<%stf_teaser/%>]]></excerpt:encoded>
 		<wp:post_id></wp:post_id>
@@ -535,6 +565,7 @@ wpds = {
         'html':"""https://www.google.com/maps/place/Ozarks+Technical+Community+College/@37.2144019,-93.2825409,15z/data=!4m2!3m1!1s0x0000000000000000:0x76db2ff4de702b77"""
     },
     
+   
     'flat text':
     {
         'html': 'Just some regular text to test in the parsing function.'

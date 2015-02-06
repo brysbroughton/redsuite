@@ -69,14 +69,14 @@ class RedRequestObj(object):
             try:
                 conn.request('POST', red.aspconnecturl, params, headers)
                 self.redResponse = conn.getresponse().read()
-                self.redResponse = self.redResponse.decode('latin-1').encode('utf-8')#handling unicode characters
+                self.redResponse = self.redResponse.decode('latin-1').encode('ascii', 'ignore')#handling unicode characters
                 self.err()
                 return self.redResponse
             except Exception as ex:
                 raise ex
         else:
             if red.cached(self.getguid()):
-                self.redResponse = red.getcached(self.getguid())
+                self.redResponse = red.getcached(self.getguid()).decode('latin-1').encode('ascii', 'ignore')
                 return self.redResponse
             else:
                 print 'new request'
@@ -85,7 +85,7 @@ class RedRequestObj(object):
                 headers = {"Content-type": "application/x-www-form-urlencoded", "Accept": "application/x-ms-application,", "Connection": "Keep-Alive", "POST": params}
                 try:
                     conn.request('POST', red.aspconnecturl, params, headers)
-                    self.redResponse = conn.getresponse().read().decode('latin-1').encode('utf-8')#handling unicode characters
+                    self.redResponse = conn.getresponse().read().decode('latin-1').encode('ascii', 'ignore')#handling unicode characters
                     self.err()
                     red.cache(self.getguid(), self.redResponse)
                     return self.redResponse
